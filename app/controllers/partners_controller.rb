@@ -1,7 +1,7 @@
 class PartnersController < ApplicationController
 
   # before_action :set_annonce, except: [:show, :edit, :update]
-  # skip_before_action :authenticate_user!, only: :show
+
 
    def new
     @partner = Partner.new
