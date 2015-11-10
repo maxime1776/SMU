@@ -1,49 +1,49 @@
-<div class="container">
+<div class="text-center " class="container">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
       <%= form_for @partner do |f| %>
         <div class="form-group">
-          <%= f.label :first_name %>
+          <%= f.label :first_name, 'Prénom' %>
           <%= f.text_field :first_name, placeholder: "Yvon-Jake", class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :last_name %>
+          <%= f.label :last_name, 'Nom' %>
           <%= f.text_field :last_name, placeholder: "Uler", class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :email %>
+          <%= f.label :email, 'Mail' %>
           <%= f.text_field :email, placeholder: "Yvon&Jake.uler@hotmail.com", class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :phone %>
+          <%= f.label :phone, 'Téléphone (fixe ou portable)' %>
           <%= f.text_field :phone, placeholder: "0622881597", class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :addresse %>
-          <%= f.text_field :addresse, placeholder: "10 place du Palais Royal 75001 Paris", class: "form-control" %>
+          <%= f.label :address, 'Adresse' %>
+          <%= f.text_field :address, placeholder: "10 place du Palais Royal 75001 Paris", class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :brith_date %>
-          <%= f.text_field :brith_date, placeholder: "15/07/1991", class: "form-control" %>
+          <%= f.label :birth_date, 'Date de naissance' %>
+          <%= f.date_field :birth_date, placeholder: "15/07/1991", class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :birth_location %>
-          <%= f.text_field :birth_location, placeholder: "15/07/1991", class: "form-control" %>
+          <%= f.label :birth_location, 'Lieu de naissance' %>
+          <%= f.text_field :birth_location, placeholder: "Paris", class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :nationality %>
-          <%= f.text_field :nationality, placeholder: "15/07/1991", class: "form-control" %>
+          <%= f.label :nationality, 'Nationalité' %>
+          <%= f.text_field :nationality, placeholder: "France", class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :admin %>
-          <%= f.text_field :admin, placeholder: "15/07/1991", class: "form-control" %>
+          <%= f.label :admin, 'Administrateur' %>
+          <%= f.text_field :admin, placeholder: "Oui/Non", class: "form-control" %>
         </div>
 
         <%= f.submit "Ajoutez le nouvel associé au contrat", class: "btn btn-primary" %>
