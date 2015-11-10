@@ -1,13 +1,21 @@
 
-
-<div text-center>
-<h1 text-center>Welcome @ Start Me Up</h1>
-
-<p>This page is a presentation page with to buttoms : Create a form (need a user acces) and a login. Somes others static pages will be added</p>
-
-<p> Here is a link to generat a form </p>
-
-
-<%= link_to t("btn btn-primary btn-lg", default: "COMMENCEZ GRATUITEMENT") %>
-
+<div class="banner text-center" style="background-image: url('')">
+  <div class="banner-gradient"></div>
+  <div class="banner-content">
+    <h1>Start Me Up</h1>
+    <p>Contractualisez votre première levée de fonds.</p>
+    <%= link_to t("btn btn-primary btn-lg", default: "COMMENCEZ GRATUITEMENT"), new_contract_path(), class: "navbar-wagon-item navbar-wagon-button btn btn-primary" %>
+  </div>
 </div>
+<div class="#apropos">
+
+  <p>blabla</p>
+</div>
+
+<div class="#offres">
+  <p>hellohello</p>
+</div>
+
+
+
+
