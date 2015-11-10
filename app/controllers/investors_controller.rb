@@ -1,58 +1,37 @@
 class InvestorsController < ApplicationController
 
-  before_action :set_booking, only: [:destroy, :edit, :update]
-  before_action :set_annonce, except: [:edit, :update]
-
+  # before_action :set_investor, only: [:destroy, :edit, :update]
 
   def new
-    @investor = Investors.new
+    @investor = Investor.new
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.annonce = @annonce
-    @booking.user = current_user
-    @booking.save
-      if @booking.save
-        redirect_to booking_path(@booking)
+    @investor = Investor.new(investor_params)
+    @contract = Contract.new(contract_params)
+    @investor.contract = @contract
+    @investor.save
+      if @investor.save
+        redirect_to contract_path(@contract)
       else
         render :new
       end
   end
 
-
-
-  def edit
-    @annonce = @booking.annonce
-  end
-
-  def update
-    @booking.update(booking_params)
-    if @booking.save
-      redirect_to annonces_path
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @booking.delete
-    redirect_to root_path
-  end
-
   private
 
-  def set_booking
-    @booking = Booking.find(params[:id])
+  def set_investor
+    @investor = Investor.find(params[:id])
   end
 
-  def set_annonce
-    @annonce = Annonce.find(params[:annonce_id])
+  def investor_params
+    params.require(:investor).permit(:first_name, :last_name, :nationality, :address, :amount_raised, :email)
   end
 
-  def booking_params
-    params.require(:booking).permit( :message, :start_at, :finish_at)
-  end
+   def contract_params
+    params.require(:contract).permit(:first_name, :last_name)
+   end
+
 
 
 end
