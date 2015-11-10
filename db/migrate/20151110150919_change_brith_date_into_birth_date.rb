@@ -1,5 +1,5 @@
 class ChangeBrithDateIntoBirthDate < ActiveRecord::Migration
   def change
-    change_column :partners, :birth_date, :date
+    rename_column :partners, :brith_date, :birth_date
   end
 end
