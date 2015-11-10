@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  resources :contract_bases do
+    resources :investors, only: [:new, :create, :edit, :update, :destroy]
+  end
+  resources :partners, only: [:new, :create, :edit, :update, :destroy]
   root to: 'pages#home'
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
