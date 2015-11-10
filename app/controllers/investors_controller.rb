@@ -2,8 +2,6 @@ class InvestorsController < ApplicationController
 
   before_action :set_investor, only: [:destroy, :edit, :update]
 
-
-
   def new
     @investor = Investors.new
   end
