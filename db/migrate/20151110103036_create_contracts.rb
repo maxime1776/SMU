@@ -1,6 +1,6 @@
-class CreateContractBases < ActiveRecord::Migration
+class CreateContracts < ActiveRecord::Migration
   def change
-    create_table :contract_bases do |t|
+    create_table :contracts do |t|
       t.text :company_status
       t.string :headquarters_address
       t.string :company_name

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :contract_bases do
+  resources :contracts do
     resources :investors, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :partners, only: [:new, :create, :edit, :update, :destroy]
