@@ -1,6 +1,6 @@
 class PartnersController < ApplicationController
 
-  # before_action :set_annonce, except: [:show, :edit, :update]
+  before_action :set_partner, except: [:new, :create]
 
 
    def new
@@ -21,6 +21,12 @@ class PartnersController < ApplicationController
    end
 
    def update
+    @partner = Partner.update(partner_params)
+    if @partner.save
+      redirect_to contract_path
+    else
+      render :edit
+    end
    end
 
    def destroy
@@ -28,9 +34,9 @@ class PartnersController < ApplicationController
 
   private
 
-  # def set_booking
-  #   @booking = Booking.find(params[:id])
-  # end
+  def set_partner
+    @partner = Partner.find(params[:id])
+  end
 
   def partner_params
     params.require(:partner).permit( :first_name, :last_name, :email, :phone, :address, :birth_date, :birth_location, :nationality)
