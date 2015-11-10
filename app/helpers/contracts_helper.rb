@@ -1,2 +1,3 @@
-module ContractsHelper
+module ContractBasesHelper
 end
+
