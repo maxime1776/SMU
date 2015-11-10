@@ -1,0 +1,18 @@
+<h1>Mes investisseurs</h1>
+<div class="container">
+ <div class="row">
+   <div class="col-xs-10 col-xs-offset-1">
+     <%= simple_form_for [@investor, @contract] do |f| %>
+       <%= f.input :first_name, placeholder: "Arthur", class: "form-control"%>
+       <%= f.input :last_name, placeholder: "Amis", class: "form-control"%>
+       <%= f.input :email, placeholder: "arthur.amis@masociete.com", class: "form-control"%>
+       <%= f.input :nationality, placeholder: "Francaise", class: "form-control"%>
+       <%= f.input :addresse, placeholder: "10 place du Palais Royal, 75001 Paris", class: "form-control"%>
+       <%= f.input :amount_raised, placeholder: "2 000", class: "form-control"%>
+       <%= f.input :last_name, placeholder: "Uler", class: "form-control"%>
+
+       <%= f.submit "Ajoutez le nouvel investisseur au contrat", class: "btn btn-primary" %>
+     <% end %>
+   </div>
+ </div>
+</div>
