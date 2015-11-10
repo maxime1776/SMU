@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :contracts do
-    resources :investors, only: [:new, :create, :edit, :update, :destroy]
+    resources :investors, only: [:new, :create]
   end
+  resources :investors, only: [:edit, :update, :destroy]
   resources :partners, only: [:new, :create, :edit, :update, :destroy]
   root to: 'pages#home'
 
