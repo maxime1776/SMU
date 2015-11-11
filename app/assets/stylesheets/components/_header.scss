@@ -1,23 +1,25 @@
 .banner {
   background-size: cover;
   color: white;
-  padding: 300px;
+  padding: 200px;
   position: relative;
   z-index: 0;
 }
+
 .banner h1 {
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
 .banner p {
   font-size: 25px;
-  color: #B2085D;
-  line-height: 3;
+  color: white;
+  line-height: 1;
   margin-bottom: 5px;
   z-index:1;
 }
 .banner-gradient {
-  background-image: linear-gradient(-225deg, #211A4C 0%, rgba(0,36,61,0.6) 50%);
+  background-color: black;
+  opacity: 0.5;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -30,6 +32,7 @@
   z-index: 2;
 }
 .banner .btn {
+  margin: 50px;
   padding: 12px 30px;
   border-radius: 3px;
   font-weight: bold;
@@ -37,12 +40,22 @@
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
   letter-spacing: 1px;
   font-size: 16px;
+  background-color: #F9C11C;
+  &:hover{
+        color: #F33535;
+    }
 }
 
 
+
+.content-text{
+  padding-bottom:50px;
+}
 .contour{
   background: white;
   opacity: 0.5;
   color: #F9C11C;
   z-index: 0;
 }
+
+

@@ -1,12 +1,14 @@
 
-  <div class="banner text-center" style="background-image: url('<%= image_path "home" %>')">
-  <div class="banner-content contour padded marged-header">
-      <h1>Tipi</h1>
-      <p>Vous souhaitez réaliser votre première levée de fonds? </p>
-      <p>Créez un contrat qui protège vos investisseurs & votre startup </p>
-    </div>
-    <%= link_to t("btn btn-primary btn-lg", default: "COMMENCEZ GRATUITEMENT"), new_contract_path(), class: "navbar-wagon-item navbar-wagon-button btn btn-primary" %>
+  <div class="banner text-center " style="background-image: url('<%= image_path "home" %>')">
+    <div class="banner-gradient"></div>
+    <div class="banner-content padded marged-header filtrer">
+        <div class="content-text">
+          <p>Réalisez votre première <strong>levée de fonds</strong>. </p>
+          <p>Créez un contrat qui protège vos <strong>investisseurs</strong> & votre <strong>startup</strong>. </p>
+        </div>
+         <%= link_to t("btn btn-primary btn-lg", default: "COMMENCEZ GRATUITEMENT"), new_contract_path(), class: "navbar-wagon-item navbar-wagon-button btn btn-primary" %>
 
+    </div>
 </div>
 <div id="apropos">
   <div class="bg-primary padded" id="description">
