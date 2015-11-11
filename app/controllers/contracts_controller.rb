@@ -1,7 +1,8 @@
 class ContractsController < ApplicationController
 
-  def new
+def new
+  @contract = Contract.new
 
-  end
+end
 
 end
