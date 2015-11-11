@@ -53,6 +53,4 @@ def contract_params
                                     investors_attributes: [:first_name, :last_name, :nationality, :address, :amount_raised, :email, :id, :_destroy])
 end
 
-
-
 end

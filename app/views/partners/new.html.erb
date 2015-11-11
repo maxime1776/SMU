@@ -1,11 +1,63 @@
-<div class="text-center ">
-  <h1>Ajoutez vos associés au contrat!</h1>
+<div class="framb">
+  <h1>Mon contrat</h1>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <%= render "shared/form" %>
-    </div>
+
+      <div class='title'>
+      Générer mon contrat de levée de fond
+      </div>
+
+      <div class='breadcrumbs'>
+        <div class='inner'>
+          <ul class='cf'>
+            <li>
+              <a>
+                <span>1</span>
+                <span>Ma société</span>
+              </a>
+            </li>
+            <li>
+              <a class='active'>
+                <span>2</span>
+                <span>Fondateurs</span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span>3</span>
+                <span>Investisseurs</span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span>4</span>
+                <span>Récapitulation</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container">
+       <div class="row">
+         <div class="col-xs-10 col-xs-offset-1">
+           <%= simple_form_for [@partner] do |f| %>
+             <%= f.input :first_name, placeholder: "Arthur", class: "form-control"%>
+             <%= f.input :last_name, placeholder: "Amis", class: "form-control"%>
+             <%= f.input :email, placeholder: "arthur.amis@masociete.com", class: "form-control"%>
+             <%= f.input :phone, placeholder: "0619196476", class: "form-control"%>
+             <%= f.input :address, placeholder: "10 place du Palais Royal, 75001 Paris", class: "form-control"%>
+             <%= f.input :birth_date, placeholder: "2 000", class: "form-control"%>
+             <%= f.input :birth_location, placeholder: "Uler", class: "form-control"%>
+             <%= f.input :nationality, placeholder: "Uler", class: "form-control"%>
+             <%= f.submit "Ajoutez le nouvel investisseur au contrat", class: "btn btn-primary" %>
+           <% end %>
+         </div>
+       </div>
+      </div>
+
   </div>
 </div>
+
