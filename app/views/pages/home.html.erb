@@ -1,18 +1,48 @@
 
-<div class="banner text-center padded" style="background-image: url('')">
-  <div class="banner-gradient"></div>
-  <div class="banner-content">
-    <h1>Tipi</h1>
-    <h4 class="banner-text">
-    <p>Vous souhaitez réaliser votre première levée de fonds? </p>
-    <p>Créez un contrat qui protège vos investisseurs & votre startup </p>
-    </h4>
+  <div class="banner text-center" style="background-image: url('<%= image_path "home" %>')">
+  <div class="banner-content contour padded marged-header">
+      <h1>Tipi</h1>
+      <p>Vous souhaitez réaliser votre première levée de fonds? </p>
+      <p>Créez un contrat qui protège vos investisseurs & votre startup </p>
+    </div>
     <%= link_to t("btn btn-primary btn-lg", default: "COMMENCEZ GRATUITEMENT"), new_contract_path(), class: "navbar-wagon-item navbar-wagon-button btn btn-primary" %>
-  </div>
+
 </div>
 <div id="apropos">
-  <h1>A PROPOS</h1>
-  <p>A propos</p>
+  <div class="bg-primary padded" id="description">
+  <div class="container text-center" id="features">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="card" data-sr="enter bottom and scale up 20% over 1s">
+          <%= image_tag "contrat.png" %>
+          <h2>CONTRATS </br>BSA AIR</h2>
+          <p>Bénéficiez d'un contrats spécialement rédigé pour les levées de fonds early-stage
+            <strong> simple et robuste</strong></p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="card" data-sr="enter bottom and scale up 20% over 1.5s">
+          <%= image_tag "signature.png" %>
+          <h2>SIGNATURES EN LIGNE</h2>
+          <p>Faites signez l'ensemble de vos contrats <strong> en ligne</strong>  </p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="card" data-sr="enter bottom and scale up 20% over 2s">
+          <%= image_tag "securite.png" %>
+          <h2>GARANTIE</h2>
+          <p> Vos contrats sont conservés et <strong>accessible sur votre profil</strong></p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="card" data-sr="enter bottom and scale up 20% over 2.5s">
+          <%= image_tag "authenticite.png" %>
+          <h2>AUTHENTICITE DES CONTRATS</h2>
+          <p>Vos contrats et leurs signatures sont <strong>uniques et authentifiés</strong> grace à la cryptologie HelloSign</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="offres">

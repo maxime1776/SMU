@@ -10,13 +10,14 @@
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
 .banner p {
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 25px;
+  color: #B2085D;
   line-height: 3;
-  margin-bottom: 18px;
+  margin-bottom: 5px;
+  z-index:1;
 }
 .banner-gradient {
-  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);
+  background-image: linear-gradient(-225deg, #211A4C 0%, rgba(0,36,61,0.6) 50%);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -36,4 +37,12 @@
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
   letter-spacing: 1px;
   font-size: 16px;
+}
+
+
+.contour{
+  background: white;
+  opacity: 0.5;
+  color: #F9C11C;
+  z-index: 0;
 }
