@@ -1,5 +1,5 @@
 class InvestorsController < ApplicationController
-
+  before_action :set_contract, except: [:new, :edit, :destroy]
   # before_action :set_investor, only: [:destroy, :edit, :update]
 
   def new
@@ -8,7 +8,6 @@ class InvestorsController < ApplicationController
 
   def create
     @investor = Investor.new(investor_params)
-    @contract = Contract.new(contract_params)
     @investor.contract = @contract
     @investor.save
       if @investor.save
@@ -19,6 +18,10 @@ class InvestorsController < ApplicationController
   end
 
   private
+
+  def set_contract
+    @contract = Contract.find(params[:contract_id])
+  end
 
   def set_investor
     @investor = Investor.find(params[:id])

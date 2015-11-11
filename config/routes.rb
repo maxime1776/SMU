@@ -4,9 +4,10 @@ Rails.application.routes.draw do
 
   resources :contracts do
     resources :investors, only: [:new, :create]
+    resources :partners, only: [:new, :create, :edit, :update, :destroy]
   end
-  resources :investors, only: [:edit, :update, :destroy]
-  resources :partners, only: [:new, :create, :edit, :update, :destroy]
+  # resources :investors, only: [:edit, :update, :destroy]
+  # resources :partners, only: [:new, :create, :edit, :update, :destroy]
   root to: 'pages#home'
 
 

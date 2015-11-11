@@ -1,2 +1,72 @@
-<h1> This the page that a user can view if he is logged</h1>
+
+<h1 class="text-center"> Sécurisez juridiquement votre levée de fonds en quelques clics </h1>
+
+<div class="container padded-booking">
+ <div class="row">
+   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+  <h2> Les informations concernant votre société </h2>
+
+    <%= simple_nested_form_for @contract do |contract| %>
+      <%= contract.input :company_name, label: 'Nom de la société', placeholder: "Canelle", class: "form-control"%>
+      <%= contract.input :company_status, label: 'Statut de la société', placeholder: "SAS", class: "form-control"%>
+      <%= contract.input :headquarters_address, label: 'Adresse du Siège', placeholder: "130 rue du Bac, 75007 Paris", class: "form-control"%>
+      <%= contract.input :share_capital, label: 'Capital social (€)', placeholder: "100 000", class: "form-control"%>
+      <%= contract.input :rcs_number, label: 'Numéro RCS', placeholder: "389 552 201 07", class: "form-control"%>
+      <%= contract.input :rcs_city, label: 'Ville du numéro RCS', placeholder: "Paris", class: "form-control"%>
+      <%= contract.input :company_object, label: 'Objet social de la société', placeholder: "Faire le bien autour de nous", class: "form-control"%>
+      <%= contract.input :company_created_on, label: 'Date de création de la société', placeholder: "11/11/2015", class: "form-control"%>
+      <%= contract.input :amount_to_be_raised, label: 'Montant de la levée de fonds (€)', placeholder: "50 000", class: "form-control"%>
+      <%= contract.input :founders_receivables, label: 'Créances des fondateurs (compte courant associé/€)', placeholder: "10 000", class: "form-control"%>
+      <%= contract.input :specific_engagment, label: 'Engagement particulier', placeholder: "A déterminer", class: "form-control"%>
+      <%= contract.input :investisors_right, label: 'Droits des investisseurs', placeholder: "A déterminer", class: "form-control"%>
+      <%= contract.input :juridiction_law, label: 'Juridiction en charge', placeholder: "Paris", class: "form-control"%>
+      <%= contract.input :signed_on, label: 'Date de la signature', placeholder: "11/11/2015", class: "form-control"%>
+      <%= contract.input :signature_localization, label: 'Fait à', placeholder: "Paris", class: "form-control"%>
+
+
+        <h2> Les informations concernant les associés de la société </h2>
+
+        <%= contract.simple_fields_for :partners do |partner_form| %>
+          <%= partner_form.input :first_name, label: 'Prénom', placeholder: "Maxime", class: "form-control" %>
+          <%= partner_form.input :last_name, label: 'Nom', placeholder: "Sadone", class: "form-control" %>
+          <%= partner_form.input :email, label: 'Mail', placeholder: "maxime.sadone@free.com", class: "form-control" %>
+          <%= partner_form.input :phone, label: 'Téléphone', placeholder: "0609080706", class: "form-control" %>
+          <%= partner_form.input :address, label: 'Adresse', placeholder: "45 rue de la Grande Chaumière, 92100 Boulogne-Billancorut", class: "form-control" %>
+          <%= partner_form.input :birth_date, label: 'Date de naissance', placeholder: "11/11/2015", class: "form-control" %>
+          <%= partner_form.input :birth_location, label: 'Lieu de naissance', placeholder: "Centuri", class: "form-control" %>
+          <%= partner_form.input :nationality, label: 'Nationalité', placeholder: "France", class: "form-control"  %>
+          <%= partner_form.link_to_remove "Supprimez cet associé" %>
+
+        <% end %>
+        <p><%= contract.link_to_add "Ajoutez un associé", :partners %></p>
+
+        <h2> Les informations concernant vos potentiels investisseurs </h2>
+
+        <%= contract.simple_fields_for :investors do |investor_form| %>
+          <%= investor_form.input :first_name, label: 'Prénom', placeholder: "Maxime", class: "form-control" %>
+          <%= investor_form.input :last_name, label: 'Nom', placeholder: "Sadone", class: "form-control" %>
+          <%= investor_form.input :nationality, label: 'Nationalité', placeholder: "France", class: "form-control" %>
+          <%= investor_form.input :address, label: 'Adresse', placeholder: "48 rue du Pont, 75011 Paris", class: "form-control" %>
+          <%= investor_form.input :amount_raised, label: 'Montant levé (par investisseur/€)', placeholder: "5000", class: "form-control" %>
+          <%= investor_form.input :email, label: 'Mail', placeholder: "maxime.sadone@free.com", class: "form-control" %>
+          <%= investor_form.link_to_remove "Supprimez cet investisseur" %>
+
+        <% end %>
+        <p><%= contract.link_to_add "Ajoutez un investisseur", :investors %></p>
+
+   <% end %>
+   </div>
+ </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 
