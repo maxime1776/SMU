@@ -1,5 +1,5 @@
 class PartnersController < ApplicationController
-
+  before_action :set_contract, except: [:new, :edit, :destroy]
   before_action :set_partner, except: [:new, :create]
 
 
@@ -9,6 +9,7 @@ class PartnersController < ApplicationController
 
    def create
     @partner = Partner.new(partner_params)
+    @partner.contract = @contract
     @partner.save
       if @partner.save
         redirect_to root_path
@@ -33,6 +34,10 @@ class PartnersController < ApplicationController
    end
 
   private
+
+  def set_contract
+    @contract = Contract.find(params[:contract_id])
+  end
 
   def set_partner
     @partner = Partner.find(params[:id])

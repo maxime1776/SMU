@@ -1,5 +1,6 @@
 class Partner < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
+  belongs_to :contract
 
   validates :first_name, presence: true, uniqueness: true
   validates :last_name, presence: true, uniqueness: true
