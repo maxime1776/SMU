@@ -1,1 +1,37 @@
 // Your footer style
+// Your footer style
+#footer {
+  bottom:0px;
+  left:0px;
+  width:100%;
+  margin-top: 100px;
+  background: #211A4C;
+  padding: 5px 0;
+  color: $gray-lighter;
+  p {
+    margin-top: 17px;
+  }
+  ul {
+    margin-top: 10px;
+  }
+  a {
+    color: $gray-lighter;
+    font-size: 30px;
+    letter-spacing: 20px;
+    transition: color 0.5s ease;
+    &:hover{
+      color: #F33535;
+    }
+  }
+}
+
+.space{
+  margin-right: -100px;
+  padding-top: 5px;
+}
+
+.color-love{
+  color: #E45171;
+}
+
+
