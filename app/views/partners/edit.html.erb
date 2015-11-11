@@ -3,7 +3,7 @@
 
  <div class="row">
    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-     <%= simple_form_for [ @booking] do |f| %>
+     <%= simple_form_for [@booking] do |f| %>
        <%= f.input :message, placeholder: "Precise any pieces of information you think are important " %>
        <%= f.input :start_at %>
        <%= f.input :finish_at %>

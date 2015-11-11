@@ -6,8 +6,12 @@
 
 // Paddings
 .padded {
-  padding-top: 300px;
+  padding: 30px;
   padding-bottom: 5em;
+}
+
+.marged-header{
+  marging-bottom:50px;
 }
 
 // Backgrounds
@@ -24,8 +28,29 @@
   background: #3b5998;
 }
 
-#apropos{
-  height:800px;
+h1 {
+ font-family: 'Varela Round', sans-serif;
+ font-size: 70px;
+}
+
+.card{
+  padding: 40px;
+  font-weight: 300;
+  h2{
+    color:#B2085D;
+    font-size: 22px;
+  }
+}
+
+
+
+.banner-text{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 40px;
+}
+#description{
+  height:400px;
+  background-color: #F9C11C;
 
 }
 
@@ -36,3 +61,4 @@
 #faq{
   height:800px;
 }
+
