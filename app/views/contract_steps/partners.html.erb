@@ -1,9 +1,10 @@
 
-<h1 class="text-center">Ajoutez les informations concernant vos associés</h1>
+
 
 <div class="container padded-booking">
  <div class="row">
    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <h2 class="text-center">Indiquez les informations concernant vos associé(e)s :</h2>
 
       <%= simple_nested_form_for @contract, url: wizard_path do |contract| %>
         <%= contract.simple_fields_for :partners do |partner_form| %>

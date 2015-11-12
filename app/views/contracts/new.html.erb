@@ -1,11 +1,10 @@
 
-<h1 class="text-center"> Sécurisez juridiquement votre levée de fonds en quelques clics </h1>
 
 <div class="container padded-booking">
  <div class="row">
    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 
-  <h2> Les informations concernant votre société </h2>
+  <h2> Indiquez les informations concernant votre société dans les champs suivants : </h2>
 
     <%= simple_nested_form_for @contract do |contract| %>
       <%= contract.input :company_name, label: 'Nom de la société', placeholder: "Canelle", class: "form-control"%>
