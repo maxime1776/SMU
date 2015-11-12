@@ -30,3 +30,6 @@ group :production do
   gem 'rails_12factor'
   gem 'puma'
 end
+
+
+gem 'hellosign-ruby-sdk'
