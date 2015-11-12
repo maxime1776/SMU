@@ -10,9 +10,11 @@
   color: #B2085D;
   p {
     margin-top: 17px;
+    color:#B2085D;
   }
   ul {
     margin-top: 10px;
+    margin-left: 100px;
   }
   a {
     color: #B2085D;
@@ -22,6 +24,9 @@
     &:hover{
       color: white;
     }
+  i{
+    padding-right:10px;
+  }
   }
 }
 
