@@ -16,6 +16,9 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 
 gem "nested_form"
+
+gem 'hellosign-ruby-sdk'
+
 gem 'wicked'
 
 group :development, :test do
