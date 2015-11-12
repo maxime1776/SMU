@@ -21,9 +21,9 @@ class ContractStepsController < ApplicationController
 
   protected
 
-  # def redirect_to_finish_wizard
-  #     redirect_to root_path, notice: "Thank you for signing up."
-  # end
+   def redirect_to_finish_wizard(options = nil)
+    redirect_to  users_profile_path , notice: "Votre contrat a été créé avec succes."
+  end
 
   def contract_params
     params.require(:contract).permit( :company_status, :headquarters_address,
