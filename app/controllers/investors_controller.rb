@@ -11,7 +11,7 @@ class InvestorsController < ApplicationController
     @investor.contract = @contract
     @investor.save
       if @investor.save
-        redirect_to contract_path(@contract)
+        redirect_to  users_profile_path
       else
         render :new
       end

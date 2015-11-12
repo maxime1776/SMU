@@ -5,6 +5,7 @@ class PartnersController < ApplicationController
 
    def new
     @partner = Partner.new
+
    end
 
    def create
@@ -12,7 +13,7 @@ class PartnersController < ApplicationController
     @partner.contract = @contract
     @partner.save
       if @partner.save
-        redirect_to root_path
+        redirect_to contract_steps_path
       else
         render :new
       end
