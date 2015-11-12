@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 
 gem "nested_form"
+gem 'hellosign-ruby-sdk'
 
 group :development, :test do
   gem 'binding_of_caller'
