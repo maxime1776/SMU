@@ -1,6 +1,6 @@
 class ContractsController < ApplicationController
 
-before_action :set_contract, except: [:index, :new, :create, :edit, :update, :destroy]
+before_action :set_contract, except: [:index, :new, :create, :update, :destroy]
 
 def index
   @contracts = Contract.all
@@ -15,23 +15,20 @@ end
 
 def create
   @contract = Contract.new(contract_params)
+  @contract.user = current_user
   @contract.save
     if @contract.save
-      redirect_to root_path
+      redirect_to contract_steps_path
     else
     end
 end
 
-
 def edit
-
-
 end
 
 def update
-
-
 end
+
 
 def destroy
 end
