@@ -1,13 +1,14 @@
 // Your footer style
 // Your footer style
 #footer {
+  position: fixed;
   bottom:0px;
   left:0px;
   width:100%;
   margin-top: 100px;
-  background: #211A4C;
+  background: #F9C11C;
   padding: 5px 0;
-  color: $gray-lighter;
+  color: #B2085D;
   p {
     margin-top: 17px;
   }
@@ -15,12 +16,12 @@
     margin-top: 10px;
   }
   a {
-    color: $gray-lighter;
+    color: #B2085D;
     font-size: 30px;
     letter-spacing: 20px;
     transition: color 0.5s ease;
     &:hover{
-      color: #F33535;
+      color: white;
     }
   }
 }
@@ -30,8 +31,5 @@
   padding-top: 5px;
 }
 
-.color-love{
-  color: #E45171;
-}
 
 
