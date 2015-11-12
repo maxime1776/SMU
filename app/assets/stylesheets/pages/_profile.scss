@@ -144,7 +144,6 @@ ul {
     text-indent: -.7em;
   }
   li:before {
-    content: "• ";
     color: #837c9a;
     font-size: 20px;
     padding-right: 8px;
@@ -152,37 +151,6 @@ ul {
 
 /* Containers size */
 
-#main_container {
-  width: 960px;
-  margin: 0 auto;
-}
-  #header {
-    height: 130px;
-    border-bottom: 1px solid #F9C11C;
-  }
-    .header_logotype_container {
-      width: 260px;
-      height: 130px;
-      border-right: 1px solid #F9C11C;
-      float: left;
-    }
-    .header_menu_container {
-      height: 130px;
-      width: 699px;
-      float: left;
-    }
-      .header_menu_container a {
-        font-family: 'Lato', Helvetica, sans-serif;
-      }
-  #left_col {
-    width: 260px;
-    float: left;
-  }
-  #content_container {
-    width: 699px;
-    border-left: 1px solid #F9C11C;
-    float: left;
-  }
 
 /* HEADER */
 
