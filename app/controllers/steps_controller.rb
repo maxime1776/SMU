@@ -1,23 +1,23 @@
-class ContractStepsController < ApplicationController
+class StepsController < ApplicationController
   include Wicked::Wizard
-  steps :partners, :investors
+  steps :company, :partners, :investors
+
+  before_action :set_contract, only: [ :show, :update ]
+
+  def new
+    redirect_to wizard_path(Wicked::FIRST_STEP)
+  end
 
   def show
-    @contract = Contract.where(user: current_user).last
+    @contract.partners.build unless @contract.partners.size > 0
+    @contract.investors.build unless @contract.investors.size > 0
     render_wizard
   end
 
   def update
-
     @contract = Contract.where(user: current_user).last
     @contract.attributes = contract_params
     render_wizard @contract
-  end
-
-  def partner
-  end
-
-  def investor
   end
 
   protected
@@ -37,5 +37,8 @@ class ContractStepsController < ApplicationController
                                       investors_attributes: [:first_name, :last_name, :nationality, :address, :amount_raised, :email, :id, :_destroy])
   end
 
+  def set_contract
+    @contract = Contract.find(params[:contract_id])
+  end
 end
 
