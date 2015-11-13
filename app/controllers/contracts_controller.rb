@@ -17,8 +17,10 @@ def create
   @contract = Contract.new(contract_params)
   @contract.user = current_user
   @contract.save
-  redirect contract_step_path
-
+    if @contract.save
+      redirect_to contract_steps_path
+    else
+    end
 end
 
 def edit
