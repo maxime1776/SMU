@@ -42,8 +42,26 @@ h1 {
   }
 }
 
+.card-profil{
+  background-color: #F4F4F4;
+  box-shadow: 1px 1px 1px 0px #656565;
+  border-radius: 3px;
+  padding:20px;
+  margin:20px;
+  h2{
+    font-size: 20px;
+    margin-top: -5px;
+    margin-left: -5px;
+    font-family: 'Varela Round', sans-serif;
+  }
+  p{
+    font-family: 'Varela Round', sans-serif;
+  }
+}
+.padded-btn{
+  padding-top:20px;
 
-
+}
 .banner-text{
   font-family: 'Open Sans', sans-serif;
   font-size: 40px;
