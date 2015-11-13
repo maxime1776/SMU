@@ -1,7 +1,6 @@
 <% @user.contracts.each do |contract| %>
   <div class="text-center">
     <h1><%= contract.company_name%></h1>
-    <h2 class="logotype_occupation purple"><span class="purple">contract.rcs_city</span></h2>
   </div>
   <!-- MAIN MENU -->
   <div class="all-cards padded">
@@ -23,31 +22,37 @@
         <li><strong>Juridiction en charge : <%=contract.juridiction_law%></strong></li>
         <li><strong>Valorisation floor : </strong></li>
         <li><strong>Valorisation cap : </strong></li>
-        <li><strong>Décoote : </strong></li>
-
+        <li><strong>Décote : </strong></li>
       </ul>
+
     </div>
+    <% contract.partners.each do |partner| %>
     <div class="card-profil">
       <h2><strong>Récapitulatif des informations sur les associés :</strong></h2>
       <ul>
-        <li><strong>Associé(e) 1 : </strong></li>
+        <li><strong>Associé(e) 1 : <%= partner.first_name%> <%= partner.last_name%>  </strong></li>
         <li><strong>Associé(e) 2 : </strong></li>
         <li><strong>Associé(e) 3 : </strong></li>
       </ul>
+    <% end %>
     </div>
+     <% contract.investors.each do |investor| %>
     <div class="card-profil">
       <h2><strong>Récapitulatif des informations sur les investisseur :</strong></h2>
       <div>
         <ul>
-          <li><strong>Investisseur 1 : </strong></li>
+          <li><strong>Investisseur 1 : <%= investor.first_name%> <%= investor.last_name%></strong></li>
           <li><strong>Investisseur 2 : </strong></li>
           <li><strong>Investisseur 3 : </strong></li>
           <li><strong>Investisseur 4 : </strong></li>
         </ul>
       </div>
     </div>
+    <% end %>
   </div>
+
 <% end %>
+
 <div class="header_menu">
   <ul class="header_menu horizontal_list">
     <li><a class="no_border purple" href="#">Profile</a></li>

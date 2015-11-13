@@ -8,9 +8,13 @@ class UsersController < ApplicationController
   def profile
     @user = current_user
     @contract = @user.contracts
+    @partner = @user.partners
   end
 
 
+  def set_partner
+    @partner = Partner.find(params[:contract_id])
+  end
   def set_user
     @user = User.find(params[:id])
   end
@@ -22,3 +26,5 @@ class UsersController < ApplicationController
 
 
 end
+
+

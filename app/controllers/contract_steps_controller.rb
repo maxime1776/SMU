@@ -8,6 +8,7 @@ class ContractStepsController < ApplicationController
   end
 
   def update
+
     @contract = Contract.where(user: current_user).last
     @contract.attributes = contract_params
     render_wizard @contract
