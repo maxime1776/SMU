@@ -17,6 +17,7 @@ def create
   @contract = Contract.new(contract_params)
   @contract.user = current_user
   @contract.save
+  redirect contract_step_path
 
 end
 
