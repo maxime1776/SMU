@@ -1,0 +1,21 @@
+<div class='breadcrumbs'>
+  <div class='inner'>
+    <ul class='cf'>
+      <li>
+        <%= link_to "1 - Ma société", wizard_path(Wicked::FIRST_STEP) %>
+      </li>
+      <li>
+        <%= link_to "2 - Fondateurs", wizard_path(:partners)%>
+      </li>
+      <li>
+          <%= link_to "3 - Investisseurs", wizard_path(:investors)%>
+      </li>
+      <li>
+        <a href="/users/profile">
+          <span>4</span>
+          <span>Récapitulatif</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

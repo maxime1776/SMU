@@ -10,18 +10,19 @@ def show
 end
 
 def new
-  @contract = Contract.new
+  @contract = Contract.create!
+  redirect_to new_contract_step_path(@contract)
 end
 
-def create
-  @contract = Contract.new(contract_params)
-  @contract.user = current_user
-  @contract.save
-    if @contract.save
-      redirect_to contract_steps_path
-    else
-    end
-end
+# def create
+#   @contract = Contract.new(contract_params)
+#   @contract.user = current_user
+#   @contract.save
+#     if @contract.save
+#       redirect_to contract_steps_path
+#     else
+#     end
+# end
 
 def edit
 end

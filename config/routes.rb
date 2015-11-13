@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   get 'users/profile' => 'users#profile'
 
-  resources :contracts
-  resources :contract_steps
+  resources :contracts do
+    resources :steps, only: [:new, :show, :update]
+  end
+
   # resources :investors, only: [:edit, :update, :destroy]
   # resources :partners, only: [:new, :create, :edit, :update, :destroy]
   root to: 'pages#home'
