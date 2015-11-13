@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
+gem 'rails_12factor', group: :production
+gem 'puma',           group: :production
 
 gem 'rails', '4.2.4'
 gem 'pg'
@@ -20,6 +22,7 @@ gem "nested_form"
 gem 'hellosign-ruby-sdk'
 
 gem 'wicked'
+
 
 group :development, :test do
   gem 'binding_of_caller'

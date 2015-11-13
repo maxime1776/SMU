@@ -1,0 +1,24 @@
+
+
+<div class="container padded-booking">
+ <div class="row">
+   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+      <h2>Ajoutez les informations concernant vos potentiels investisseurs</h2>
+      <%= simple_nested_form_for @contract, url: wizard_path do |contract| %>
+        <%= contract.simple_fields_for :investors do |investor_form| %>
+          <%= investor_form.input :first_name, label: 'Prénom', placeholder: "Maxime", class: "form-control" %>
+          <%= investor_form.input :last_name, label: 'Nom', placeholder: "Sadone", class: "form-control" %>
+          <%= investor_form.input :nationality, label: 'Mail', placeholder: "maxime.sadone@free.com", class: "form-control" %>
+          <%= investor_form.input :address, label: 'Téléphone', placeholder: "0609080706", class: "form-control" %>
+          <%= investor_form.input :amount_raised, label: 'Adresse', placeholder: "45 rue de la Grande Chaumière, 92100 Boulogne-Billancorut", class: "form-control" %>
+          <%= investor_form.input :email, label: 'Date de naissance', placeholder: "11/11/2015", class: "form-control" %>
+          <%= investor_form.link_to_remove "Supprimez cet investisseur" %>
+          <%= investor_form.submit "Générez votre contrat", class: "btn btn-primary" %>
+        <% end %>
+        <p><%= contract.link_to_add "Ajoutez un investisseur", :investors %></p>
+      <% end %>
+   </div>
+ </div>
+</div>
+

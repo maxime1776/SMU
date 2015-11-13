@@ -1,0 +1,41 @@
+
+
+<div class="container padded-booking">
+ <div class="row">
+   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+  <h2> Indiquez les informations concernant votre société dans les champs suivants : </h2>
+
+    <%= simple_nested_form_for @contract do |contract| %>
+      <%= contract.input :company_name, label: 'Nom de la société', placeholder: "Canelle", class: "form-control"%>
+      <%= contract.input :company_status, label: 'Statut de la société', placeholder: "SAS", class: "form-control"%>
+      <%= contract.input :headquarters_address, label: 'Adresse du Siège', placeholder: "130 rue du Bac, 75007 Paris", class: "form-control"%>
+      <%= contract.input :share_capital, label: 'Capital social (€)', placeholder: "100 000", class: "form-control"%>
+      <%= contract.input :rcs_number, label: 'Numéro RCS', placeholder: "389 552 201 07", class: "form-control"%>
+      <%= contract.input :rcs_city, label: 'Ville du numéro RCS', placeholder: "Paris", class: "form-control"%>
+      <%= contract.input :company_object, label: 'Objet social de la société', placeholder: "Faire le bien autour de nous", class: "form-control"%>
+      <%= contract.input :company_created_on, label: 'Date de création de la société', placeholder: "11/11/2015", class: "form-control"%>
+      <%= contract.input :amount_to_be_raised, label: 'Montant de la levée de fonds (€)', placeholder: "50 000", class: "form-control"%>
+      <%= contract.input :founders_receivables, label: 'Créances des fondateurs (compte courant associé/€)', placeholder: "10 000", class: "form-control"%>
+      <%= contract.input :specific_engagment, label: 'Engagement particulier', placeholder: "A déterminer", class: "form-control"%>
+      <%= contract.input :investisors_right, label: 'Droits des investisseurs', placeholder: "A déterminer", class: "form-control"%>
+      <%= contract.input :juridiction_law, label: 'Juridiction en charge', placeholder: "Paris", class: "form-control"%>
+      <%= contract.input :signed_on, label: 'Date de la signature', placeholder: "11/11/2015", class: "form-control"%>
+      <%= contract.input :signature_localization, label: 'Fait à', placeholder: "Paris", class: "form-control"%>
+      <%= contract.submit "Passez à l'étape suivante", class: "btn btn-primary" %>
+   <% end %>
+   </div>
+ </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
