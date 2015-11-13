@@ -1,46 +1,58 @@
-<div class="text-center">
-      <h1>Ginette</h1>
-      <!-- <h1 class="logotype_name"><%= "@contracts.company_name" %></h1> -->
-      <h2 class="logotype_occupation purple"><span class="purple">contracts.rcs_city</span></h2>
-    </div>
-    <!-- MAIN MENU -->
-    <div class="all-cards padded">
-      <div class="card-profil">
-          <h2><strong>Récapitulatif des informations sur la société et la levée : </strong></h2>
-            <ul>
-            <li><strong>Montant de la levée : </strong></li>
-            <li><strong>Décotte : </strong></li>
-          </ul>
-      </div>
+<% @user.contracts.each do |contract| %>
+  <div class="text-center">
+    <h1><%= contract.company_name%></h1>
+    <h2 class="logotype_occupation purple"><span class="purple">contract.rcs_city</span></h2>
+  </div>
+  <!-- MAIN MENU -->
+  <div class="all-cards padded">
+    <div class="card-profil">
+      <h2><strong>Récapitulatif des informations sur la société et la levée : </strong></h2>
+      <ul>
+        <li><strong>Nom de la société : <%= contract.company_name%></strong></li>
+        <li><strong>Statut de la société : <%=contract.company_status%></strong></li>
+        <li><strong>Adresse du siège : <%=contract.headquarters_address%></strong></li>
+        <li><strong>Capital social : <%=contract.share_capital%></strong></li>
+        <li><strong>Numéro RCS : <%=contract.rcs_number%></strong></li>
+        <li><strong>Ville RCS : <%=contract.rcs_city%></strong></li>
+        <li><strong>Date de création : <%=contract.company_created_on%></strong></li>
+        <li><strong>Objet social : <%=contract.company_object%></strong></li>
+        <li><strong>Créance des fondateurs : <%=contract.founders_receivables%></strong></li>
+        <li><strong>Montant de la levée : <%=contract.amount_to_be_raised%></strong></li>
+        <li><strong>Engagement(s) particulier(s) : <%=contract.specific_engagment%></strong></li>
+        <li><strong>Droits des investisseurs : <%=contract.investisors_right%></strong></li>
+        <li><strong>Juridiction en charge : <%=contract.juridiction_law%></strong></li>
+        <li><strong>Valorisation floor : </strong></li>
+        <li><strong>Valorisation cap : </strong></li>
+        <li><strong>Décoote : </strong></li>
 
-      <div class="card-profil">
-          <h2><strong>Récapitulatif des informations sur les associés :</strong></h2>
-            <ul>
-            <li><strong>Associé(e) 1 : </strong></li>
-            <li><strong>Associé(e) 2 : </strong></li>
-            <li><strong>Associé(e) 3 : </strong></li>
-          </ul>
-      </div>
-
-      <div class="card-profil">
-        <h2><strong>Récapitulatif des informations sur les investisseur :</strong></h2>
-        <div >
-          <ul>
-            <li><strong>Investisseur 1 : </strong></li>
-            <li><strong>Investisseur 2 : </strong></li>
-            <li><strong>Investisseur 3 : </strong></li>
-            <li><strong>Investisseur 4 : </strong></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-        <div class="header_menu">
-      <ul class="header_menu horizontal_list">
-        <li><a class="no_border purple" href="#">Profile</a></li>
-        <li><a href="#">Contrats</a></li>
-        <li><a href="#">Modifier</a></li>
-        <li><a href="#">Générer un nouveau contrat</a></li>
       </ul>
     </div>
+    <div class="card-profil">
+      <h2><strong>Récapitulatif des informations sur les associés :</strong></h2>
+      <ul>
+        <li><strong>Associé(e) 1 : </strong></li>
+        <li><strong>Associé(e) 2 : </strong></li>
+        <li><strong>Associé(e) 3 : </strong></li>
+      </ul>
+    </div>
+    <div class="card-profil">
+      <h2><strong>Récapitulatif des informations sur les investisseur :</strong></h2>
+      <div>
+        <ul>
+          <li><strong>Investisseur 1 : </strong></li>
+          <li><strong>Investisseur 2 : </strong></li>
+          <li><strong>Investisseur 3 : </strong></li>
+          <li><strong>Investisseur 4 : </strong></li>
+        </ul>
+      </div>
+    </div>
   </div>
+<% end %>
+<div class="header_menu">
+  <ul class="header_menu horizontal_list">
+    <li><a class="no_border purple" href="#">Profile</a></li>
+    <li><a href="#">Contrats</a></li>
+    <li><a href="#">Modifier</a></li>
+    <li><a href="#">Générer un nouveau contrat</a></li>
+  </ul>
 </div>

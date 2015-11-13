@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   end
 
   def profile
-   @user = current_user
+    @user = current_user
+    @contract = @user.contracts
   end
 
 
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit( :email, :password)
   end
+
 
 
 end
