@@ -40,7 +40,7 @@ def set_contract
 end
 
 def contract_params
-  params.require(:contract).permit( :company_status, :headquarters_address,
+  params.require(:contract).permit( :company_name, :company_status, :headquarters_address,
                                     :company_name, :share_capital, :rcs_number,
                                     :rcs_city, :company_object, :company_created_on,
                                     :amount_to_be_raised, :founders_receivables,
