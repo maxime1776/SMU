@@ -2,7 +2,7 @@ class StepsController < ApplicationController
   include Wicked::Wizard
   steps :company, :partners, :investors
 
-  before_action :set_contract, only: [ :show, :update ]
+  before_action :set_contract, only: [ :show, :update, :generate_contract_signature ]
 
   def new
     redirect_to wizard_path(Wicked::FIRST_STEP)
@@ -18,6 +18,39 @@ class StepsController < ApplicationController
     @contract.user = current_user unless @contract.user
     @contract.attributes = contract_params
     render_wizard @contract
+  end
+
+  def generate_contract_signature
+    signature_request = HelloSign.send_signature_request_with_template(
+      test_mode: Rails.env.production? ? 0 : 1,
+      template_id: "bacc6dc036317803be3700485b86edc430392480",
+      title: "title test",
+      subject: "test",
+      message: "test",
+      # signing_redirect_url: "",     # TODO: special page on le wagon website?
+      # metadata: {
+      #   card_id: @card.id,
+      #   trello_card_id: @card.trello_card_id,
+      # },
+      signers: [
+        {
+          email_address: "max@max.com",
+          name: "max",
+          role: "CEO"
+        }
+      ],
+      # :ccs => [
+      #   {
+      #     :email_address =>'accounting@example.com',
+      #     :role => "Accounting"
+      #   }
+      # ],
+      custom_fields: {  # run `rake hello_sign:list_templates` to get those
+        info_partner_1: @contract.partners.first.first_name + " " + @contract.partners.first.last_name + ", né(e) à" + @contract.partners.first.birth_location + ", le" + @contract.partners.first.birth_date.to_s + ", demeurant" + @contract.partners.first.address + ", de nationalité " + @contract.partners.first.nationality + ".",
+        info_investor: @contract.investors.first.first_name + " " + @contract.investors.first.last_name + ", né(e) à "
+      }
+    )
+    redirect_to users_profile_path(current_user)
   end
 
   protected
