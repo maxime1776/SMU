@@ -9,17 +9,18 @@
       <div class="container">
        <div class="row">
          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-          <h2> Les informations de votre (vos) associé(e)s : </h2>
+          <h2> Les informations des fondateurs : </h2>
             <%= simple_nested_form_for @contract, url: wizard_path do |contract| %>
               <%= contract.simple_fields_for :partners do |partner_form| %>
                 <%= partner_form.input :first_name, label: 'Prénom', placeholder: "Maxime", class: "form-control" %>
                 <%= partner_form.input :last_name, label: 'Nom', placeholder: "Sadone", class: "form-control" %>
                 <%= partner_form.input :email, label: 'Mail', placeholder: "maxime.sadone@free.com", class: "form-control" %>
-                <%= partner_form.input :phone, label: 'Téléphone', placeholder: "0609080706", class: "form-control" %>
+                <%= partner_form.input :phone, label: 'Téléphone', as: :string, placeholder: "0609080706", class: "form-control" %>
                 <%= partner_form.input :address, label: 'Adresse', placeholder: "45 rue de la Grande Chaumière, 92100 Boulogne-Billancorut", class: "form-control" %>
-                <%= partner_form.input :birth_date, label: 'Date de naissance', placeholder: "11/11/2015", class: "form-control" %>
+                <%= partner_form.input :birth_date, label: 'Date de naissance', as: :string, input_html: {class: "datepicker"}, placeholder: "11/17/2015", class: "form-control" %>
                 <%= partner_form.input :birth_location, label: 'Lieu de naissance', placeholder: "Centuri", class: "form-control" %>
                 <%= partner_form.input :nationality, label: 'Nationalité', placeholder: "France", class: "form-control"  %>
+                <%= partner_form.input :founders_receivables, label: 'Créances des fondateurs (compte courant associé/€)', as: :string, placeholder: "10 000", class: "form-control"%>
                 <%= partner_form.link_to_remove "Supprimez cet associé" %>
               <% end %>
               <p><%= contract.link_to_add "Ajoutez un(e) associé(e)", :partners %></p>
