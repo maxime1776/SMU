@@ -15,7 +15,7 @@ class StepsController < ApplicationController
   end
 
   def update
-    @contract = Contract.where(user: current_user).last || Contract.last
+    @contract.user = current_user unless @contract.user
     @contract.attributes = contract_params
     render_wizard @contract
   end
