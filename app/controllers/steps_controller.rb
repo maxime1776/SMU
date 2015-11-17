@@ -1,5 +1,6 @@
 class StepsController < ApplicationController
-  skip_before_action :verify_authenticity_token, :test
+  skip_before_action :verify_authenticity_token, only: [:test, :callbacks]
+  skip_before_action :authenticate_user!, only: :callbacks
   include Wicked::Wizard
   steps :company, :partners, :investors
 
@@ -77,8 +78,14 @@ class StepsController < ApplicationController
   end
 
   def test
-    @test = params[:event]
+    #@test = params[:event]
+     render text: 'Hello API Event Received'
 
+  end
+
+  def callbacks
+    @callbacks = params[:event]
+    render text: 'Hello API Event Received'
   end
 
   protected
