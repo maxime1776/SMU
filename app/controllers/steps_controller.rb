@@ -9,13 +9,13 @@ class StepsController < ApplicationController
   end
 
   def show
-    @contract.partners.build unless @contract.partners.size > 0
+    @contract.partners.build  unless @contract.partners.size > 0
     @contract.investors.build unless @contract.investors.size > 0
     render_wizard
   end
 
   def update
-    @contract.user = current_user unless @contract.user
+    @contract.user       = current_user unless @contract.user
     @contract.attributes = contract_params
     render_wizard @contract
   end
