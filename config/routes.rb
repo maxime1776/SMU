@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-
-  resources :bsas, only: [ :index, :show ]
+  get 'payments/new'
 
   devise_for :users
   get 'users/profile' => 'users#profile'
 
   resources :contracts do
     resources :steps, only: [:new, :show, :update]
+    resources :payments, only: [:new, :create]
   end
 
   # resources :investors, only: [:edit, :update, :destroy]

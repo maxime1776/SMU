@@ -1,0 +1,17 @@
+
+<h1> Achat d'un contrat <%= @contract.id %></h1>
+<%= form_tag contract_payments_path(@contract) do %>
+  <article>
+    <label class="price">
+      <span>Price: <%= humanized_money_with_symbol(@contract.price) %></span>
+    </label>
+  </article>
+
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="my-contract"
+    data-description="Contract <%= @contract.id %>"
+    data-amount="<%= @contract.price_cents %>"
+    data-currency="EUR"></script>
+<% end %>
