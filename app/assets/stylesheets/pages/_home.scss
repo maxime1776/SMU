@@ -2,3 +2,139 @@
  * SASS code SPECIFIC TO your home page
  * (margin/padding adjustments, background image, etc..)
  * ------------------------------------- */
+
+
+ // ---BANNER---
+.banner-text{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.banner {
+  background-size: cover;
+  position: relative;
+
+  height: 100vh;
+  display: flex;
+  min-height: 500px;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+
+  .navbar-wagon-item {
+    background-color: #FFFFFF !important;
+    color: #F3C22C;
+
+  }
+}
+
+.banner-gradient {
+  background-color: #F9C11C;
+  opacity: 0.92;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  min-height: 500px;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+}
+.banner h1 {
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner p {
+  font-size: 25px;
+  color: white;
+  line-height: 1;
+  margin-bottom: 5px;
+  z-index:1;
+}
+.banner .btn {
+  // margin: 50px;
+  padding: 12px 30px;
+  border-radius: 3px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+  font-size: 16px;
+  background-color: #F9C11C;
+  &:hover{
+        color: #F33535;
+    }
+}
+
+
+.title-slice-container {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+
+  .sub-title { opacity: .7; }
+}
+
+.about-slice {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-card-container {
+  padding: 30px;
+
+  flex: 0 0 50%;
+
+  @media (max-width: $screen-sm) {
+    flex: 0 0 100%;
+  }
+}
+
+.about-card {
+  display: flex;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+}
+
+.about-card-image {
+  min-height: 200px;
+  background: #F9C11C;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  width: 300px;
+  margin-right: 20px;
+}
+
+// ---APROPOS---
+
+#description{
+ background-color: #F9C11C;
+
+}
+
+.offers {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+#faq{
+ height:800px;
+}
+
+
+

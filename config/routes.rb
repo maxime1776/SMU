@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'users/profile' => 'users#profile'
-
   resources :contracts do
     resources :steps, only: [:new, :show, :update]
   end
