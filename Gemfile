@@ -9,6 +9,8 @@ gem 'pg'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'coffee-script'
+gem 'money-rails'
+gem 'stripe'
 gem 'devise'
 
 gem 'sass-rails', '~> 5.0'

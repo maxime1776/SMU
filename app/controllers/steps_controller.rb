@@ -17,6 +17,8 @@ class StepsController < ApplicationController
   def update
     @contract.user       = current_user unless @contract.user
     @contract.attributes = contract_params
+    @contract.price = 60
+    @contract.state = 'pending'
     render_wizard @contract
   end
 

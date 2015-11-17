@@ -1,6 +1,11 @@
 <% @user.contracts.each do |contract| %>
   <div class="text-center">
-    <h1><%= contract.company_name%></h1>
+    <h1><%= contract.company_name %></h1>
+    <% if contract.state == 'pending' %>
+      <%= link_to 'Payer le contrat', new_contract_payment_path(contract), class: 'btn btn-success' %>
+    <% else %>
+      <%= link_to 'Télécharger le contrat', contract_path(contract), class: 'btn btn-success' %>
+    <% end %>
   </div>
   <!-- MAIN MENU -->
   <div class="all-cards padded">

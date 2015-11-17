@@ -8,6 +8,7 @@ class Contract < ActiveRecord::Base
   # validates_format_of :amount_to_be_raised, with: /^\d+$/
   # validates_format_of :founders_receivables, with: /^\d+$/
 
+  monetize :price_cents
 end
 
 
