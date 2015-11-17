@@ -12,6 +12,7 @@ class PartnersController < ApplicationController
     @partner = Partner.new(partner_params)
     @partner.contract = @contract
     @partner.save
+
       if @partner.save
         redirect_to contract_steps_path
       else

@@ -15,7 +15,6 @@
         <li><strong>Ville RCS : <%=contract.rcs_city%></strong></li>
         <li><strong>Date de création : <%=contract.company_created_on%></strong></li>
         <li><strong>Objet social : <%=contract.company_object%></strong></li>
-        <li><strong>Créance des fondateurs : <%=contract.founders_receivables%></strong></li>
         <li><strong>Montant de la levée : <%=contract.amount_to_be_raised%></strong></li>
         <li><strong>Engagement(s) particulier(s) : <%=contract.specific_engagment%></strong></li>
         <li><strong>Droits des investisseurs : <%=contract.investisors_right%></strong></li>
@@ -31,6 +30,7 @@
       <h2><strong>Récapitulatif des informations sur les associés :</strong></h2>
       <ul>
         <li><strong>Associé(e) 1 : <%= partner.first_name%> <%= partner.last_name%>  </strong></li>
+        <li><strong>Créance de l'associé 1 : <%=partner.founders_receivables%></strong></li>
         <li><strong>Associé(e) 2 : </strong></li>
         <li><strong>Associé(e) 3 : </strong></li>
       </ul>
