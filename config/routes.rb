@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :bsas, only: [ :index, :show ]
+
   devise_for :users
   get 'users/profile' => 'users#profile'
 

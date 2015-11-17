@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112113352) do
+ActiveRecord::Schema.define(version: 20151117142953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bsas", force: :cascade do |t|
+    t.string   "sku"
+    t.string   "name"
+    t.integer  "price_cents",    default: 0,     null: false
+    t.string   "price_currency", default: "EUR", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
 
   create_table "contracts", force: :cascade do |t|
     t.text     "company_status"
@@ -26,7 +35,6 @@ ActiveRecord::Schema.define(version: 20151112113352) do
     t.text     "company_object"
     t.date     "company_created_on"
     t.integer  "amount_to_be_raised"
-    t.integer  "founders_receivables"
     t.text     "specific_engagment"
     t.text     "investisors_right"
     t.text     "juridiction_law"
@@ -49,23 +57,39 @@ ActiveRecord::Schema.define(version: 20151112113352) do
     t.datetime "updated_at",    null: false
     t.integer  "contract_id"
     t.text     "email"
+    t.text     "birthdate"
+    t.text     "birthplace"
+    t.text     "rate_drop"
+    t.text     "valo_cap"
+    t.text     "valo_floor"
   end
 
   add_index "investors", ["contract_id"], name: "index_investors_on_contract_id", using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "state"
+    t.string   "bsas_sku"
+    t.integer  "amount_cents",    default: 0,     null: false
+    t.string   "amount_currency", default: "EUR", null: false
+    t.json     "payment"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
 
   create_table "partners", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "address"
     t.datetime "birth_date"
     t.string   "birth_location"
     t.string   "nationality"
     t.boolean  "admin"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "contract_id"
+    t.text     "founders_receivables"
   end
 
   add_index "partners", ["contract_id"], name: "index_partners_on_contract_id", using: :btree
