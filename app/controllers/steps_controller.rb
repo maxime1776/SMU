@@ -1,4 +1,5 @@
 class StepsController < ApplicationController
+  skip_before_action :verify_authenticity_token, :test
   include Wicked::Wizard
   steps :company, :partners, :investors
 
@@ -21,36 +22,63 @@ class StepsController < ApplicationController
   end
 
   def generate_contract_signature
-    signature_request = HelloSign.send_signature_request_with_template(
-      test_mode: Rails.env.production? ? 0 : 1,
-      template_id: "bacc6dc036317803be3700485b86edc430392480",
-      title: "title test",
-      subject: "test",
-      message: "test",
-      # signing_redirect_url: "",     # TODO: special page on le wagon website?
-      # metadata: {
-      #   card_id: @card.id,
-      #   trello_card_id: @card.trello_card_id,
-      # },
-      signers: [
-        {
-          email_address: "max@max.com",
-          name: "max",
-          role: "CEO"
-        }
-      ],
-      # :ccs => [
-      #   {
-      #     :email_address =>'accounting@example.com',
-      #     :role => "Accounting"
-      #   }
-      # ],
-      custom_fields: {  # run `rake hello_sign:list_templates` to get those
-        info_partner_1: @contract.partners.first.first_name + " " + @contract.partners.first.last_name + ", né(e) à" + @contract.partners.first.birth_location + ", le" + @contract.partners.first.birth_date.to_s + ", demeurant" + @contract.partners.first.address + ", de nationalité " + @contract.partners.first.nationality + ".",
-        info_investor: @contract.investors.first.first_name + " " + @contract.investors.first.last_name + ", né(e) à "
-      }
+    client = HelloSign::Client.new :api_key => 'ce300f797644a5c4a420f79fbb5112c0b01f5e06041bd89a2640c749aa7df13c'
+    client.send_signature_request(
+        :test_mode => 1,
+        :title => 'NDA with Acme Co.',
+        :subject => 'The NDA we talked about',
+        :message => 'Please sign this NDA and then we can discuss more. Let me know if you have any
+        questions.',
+        :partner_1 => [
+            {
+                :email_address => 'maxime1776@gmail.com',
+                :name => 'Maxime  Santilli'
+            }
+
+        ],
+        :files => ['NDA.pdf']
     )
+    # signature_request = HelloSign.send_signature_request_with_template(
+    #   test_mode: Rails.env.production? ? 0 : 1,
+    #   template_id: "bacc6dc036317803be3700485b86edc430392480",
+    #   title: "title test",
+    #   subject: "test",
+    #   message: "test",
+    #   # signing_redirect_url: "",     # TODO: special page on le wagon website?
+    #   # metadata: {
+    #   #   card_id: @card.id,
+    #   #   trello_card_id: @card.trello_card_id,
+    #   # },
+    #   signers: [
+    #     {
+    #       email_address: "max@max.com",
+    #       name: "max",
+    #       role: "CEO"
+    #     }
+    #   ],
+    #   # :ccs => [
+    #   #   {
+    #   #     :email_address =>'accounting@example.com',
+    #   #     :role => "Accounting"
+    #   #   }
+    #   # ],
+    #   custom_fields: {  # run `rake hello_sign:list_templates` to get those
+
+    #     info_investor: "prout",
+    #     info_company: "yallah",
+    #     company_status: "sas",
+
+
+    #     #@contract.partners.first.first_name + " " + @contract.partners.first.last_name + ", né(e) à" + @contract.partners.first.birth_location + ", le" + @contract.partners.first.birth_date.to_s + ", demeurant" + @contract.partners.first.address + ", de nationalité " + @contract.partners.first.nationality + ".",
+
+    #   }
+    # )
     redirect_to users_profile_path(current_user)
+  end
+
+  def test
+    @test = params[:event]
+
   end
 
   protected

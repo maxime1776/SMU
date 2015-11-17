@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   get 'contracts/:contract_id/generate_contract_signature' => "steps#generate_contract_signature", as: "hello_sign"
-
+  post 'test', to: "steps#test"
   # resources :investors, only: [:edit, :update, :destroy]
   # resources :partners, only: [:new, :create, :edit, :update, :destroy]
   root to: 'pages#home'
