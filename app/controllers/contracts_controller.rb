@@ -1,6 +1,6 @@
 class ContractsController < ApplicationController
 
-before_action :set_contract, except: [:index, :new, :create, :update, :destroy]
+before_action :set_contract, except: [:index, :new ]
 
 def index
   @contracts = Contract.all
@@ -32,6 +32,75 @@ end
 
 
 def destroy
+end
+
+def generate_contract_signature
+  client = HelloSign::Client.new :api_key => ENV['HELLOSIGN_API_KEY']
+  request = client.create_embedded_signature_request(
+    :test_mode => 1,
+    :client_id => ENV['HELLOSIGN_CLIENT_ID'],
+    #:template_id => '8263291edf80fd3ad6c2fa91d645251d49b543a7',
+    :subject => 'My First embedded signature request',
+    :message => 'Awesome, right?',
+    :signers => [
+        {
+            :email_address => 'maxime1776@gmail.com',
+            :name => 'Maxime  Santilli'
+        }
+    ],
+    :files => ['NDA.pdf']
+  )
+
+  # ATTENTION(ssaunier): On fait un .first mais il faut stocker
+  #                      TOUTES les signature_id de `request.signatures` en base.
+
+
+  @contract.signature_request_id = request.signatures.first.signature_id
+  @contract.save
+
+  redirect_to pdf_contract_path(@contract)
+
+  # signature_request = HelloSign.send_signature_request_with_template(
+  #   test_mode: Rails.env.production? ? 0 : 1,
+  #   template_id: "bacc6dc036317803be3700485b86edc430392480",
+  #   title: "title test",
+  #   subject: "test",
+  #   message: "test",
+  #   # signing_redirect_url: "",     # TODO: special page on le wagon website?
+  #   # metadata: {
+  #   #   card_id: @card.id,
+  #   #   trello_card_id: @card.trello_card_id,
+  #   # },
+  #   signers: [
+  #     {
+  #       email_address: "max@max.com",
+  #       name: "max",
+  #       role: "CEO"
+  #     }
+  #   ],
+  #   # :ccs => [
+  #   #   {
+  #   #     :email_address =>'accounting@example.com',
+  #   #     :role => "Accounting"
+  #   #   }
+  #   # ],
+  #   custom_fields: {  # run `rake hello_sign:list_templates` to get those
+
+  #     info_investor: "prout",
+  #     info_company: "yallah",
+  #     company_status: "sas",
+
+
+  #     #@contract.partners.first.first_name + " " + @contract.partners.first.last_name + ", né(e) à" + @contract.partners.first.birth_location + ", le" + @contract.partners.first.birth_date.to_s + ", demeurant" + @contract.partners.first.address + ", de nationalité " + @contract.partners.first.nationality + ".",
+
+  #   }
+  # )
+  #redirect_to users_profile_path(current_user)
+end
+
+def pdf
+  client = HelloSign::Client.new :api_key => ENV['HELLOSIGN_API_KEY']
+  @hello_sign_url = client.get_embedded_sign_url(:signature_id => @contract.signature_request_id).sign_url
 end
 
 private

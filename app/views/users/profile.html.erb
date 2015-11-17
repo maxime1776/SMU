@@ -50,7 +50,7 @@
     </div>
     <% end %>
   </div>
-  <%= link_to "Générer pdf", hello_sign_path(contract), class: "btn btn-success" %>
+  <%= link_to "Générer pdf", generate_contract_signature_contract_path(contract), method: :post, class: "btn btn-success" %>
 
 <% end %>
 

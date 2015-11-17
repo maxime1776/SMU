@@ -3,12 +3,17 @@ Rails.application.routes.draw do
   get 'users/profile' => 'users#profile'
 
   resources :contracts do
+    member do
+      post :generate_contract_signature
+      get :pdf
+    end
     resources :steps, only: [:new, :show, :update]
   end
 
-  get 'contracts/:contract_id/generate_contract_signature' => "steps#generate_contract_signature", as: "hello_sign"
+
   post 'test', to: "steps#test"
   post 'callbacks', to: "steps#callbacks"
+
   # resources :investors, only: [:edit, :update, :destroy]
   # resources :partners, only: [:new, :create, :edit, :update, :destroy]
   root to: 'pages#home'
