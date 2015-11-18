@@ -2,3 +2,233 @@
  * SASS code SPECIFIC TO your home page
  * (margin/padding adjustments, background image, etc..)
  * ------------------------------------- */
+
+
+ // ---BANNER---
+.banner-text{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.banner {
+  background-size: cover;
+  position: relative;
+
+  height: 100vh;
+  display: flex;
+  min-height: 500px;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+
+  .navbar-wagon-item {
+    background-color: #FFFFFF !important;
+    color: #F3C22C;
+
+  }
+}
+
+.banner-gradient {
+  background-color: #F9C11C;
+  opacity: 0.77;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  min-height: 500px;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+}
+.banner h1 {
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner p {
+  font-size: 30px;
+  color: white;
+  line-height: 1;
+  margin-bottom: 5px;
+  z-index:1;
+}
+.banner .btn {
+  // margin: 50px;
+  padding: 12px 30px;
+  border-radius: 3px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+  font-size: 16px;
+  background-color: #F9C11C;
+  &:hover{
+        color: #F33535;
+    }
+}
+
+
+.title-slice-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px 0;
+  text-align: center;
+
+  .title {
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    font-weight: bold;
+  }
+
+  .sub-title {
+    opacity: .7;
+    font-weight: 100;
+    font-size: 22px;
+  }
+}
+
+.about-slice {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-card-container {
+  padding: 30px;
+  display: flex;
+  flex: 0 0 50%;
+
+  @media (max-width: $screen-sm) {
+    flex: 0 0 100%;
+  }
+}
+
+.about-card-container-ex{
+  padding: 30px;
+  display: flex;
+  flex: 0 0 100%;
+
+  @media (max-width: $screen-sm) {
+    flex: 0 0 100%;
+  }
+}
+.about-card {
+  display: flex;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+}
+
+.about-card-image {
+  min-height: 200px;
+  background: #F9C11C;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  width: 300px;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+.line {
+  min-height: 200px;
+  background: #F9C11C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  width: 300px;
+  margin-right: 20px;
+  width: 10px;
+}
+// ---APROPOS---
+
+#description{
+
+
+}
+
+.offers {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+
+.about-card-content-title{
+    font-size: 26px;
+    letter-spacing: -2px;
+    color: black;
+    padding-bottom: 10px;
+    flex: 1;
+}
+.about-card-content{
+    font-size: 16px;
+    line-height: 1.4;
+    opacity: .7;
+}
+
+.about-card-content-container {
+  display: flex;
+
+  flex-flow: column;
+}
+
+.center-vid{
+  margin: auto;
+}
+
+.yellowc{
+  background-color: #F9C11C;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  border-radius: 7px;
+}
+
+.about-card-content-case{
+  display: flex;
+}
+
+.about-card-content li{
+    font-size: 17px;
+    line-height: 1.4;
+
+}
+.about-card-content-ennoncer li{
+    color: #555;
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+    font-size: 18px;
+    line-height: 1.4;
+
+}
+.about-card-content-cas{
+  background-color: rgba(85, 85, 85, 0.13);
+  padding-right: 20px;
+  border-radius: 4px;
+  width: 387px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  padding: 16px;
+  margin: 3px;
+}
+.about-card-content-cas-title{
+    padding-bottom: 17px;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+ .about-card-content-ennoncer{
+    padding: 20px;
+    border: 1px solid #777777;
+    border-radius: 4px;
+    margin: 3px;
+ }
+

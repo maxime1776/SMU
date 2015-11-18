@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'users/profile' => 'users#profile'
-
   resources :contracts do
     member do
       post :generate_contract_signature
