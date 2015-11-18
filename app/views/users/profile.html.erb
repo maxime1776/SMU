@@ -24,9 +24,6 @@
         <li><strong>Engagement(s) particulier(s) : <%=contract.specific_engagment%></strong></li>
         <li><strong>Droits des investisseurs : <%=contract.investisors_right%></strong></li>
         <li><strong>Juridiction en charge : <%=contract.juridiction_law%></strong></li>
-        <li><strong>Valorisation floor : </strong></li>
-        <li><strong>Valorisation cap : </strong></li>
-        <li><strong>Décote : </strong></li>
       </ul>
 
     </div>
@@ -41,15 +38,16 @@
      <% contract.investors.each do |investor| %>
     <div class="card-profil">
       <h2><strong>Récapitulatif des informations sur les investisseur :</strong></h2>
-      <div>
-        <ul>
-          <li><strong>Investisseur 1 : <%= investor.first_name%> <%= investor.last_name%></strong></li>
-          <li><strong>Investisseur 2 : </strong></li>
-          <li><strong>Investisseur 3 : </strong></li>
-          <li><strong>Investisseur 4 : </strong></li>
-        </ul>
+      <ul>
+        <% contract.partners.each_with_index do |partner, index| %>
+          <li><strong>Investisseur</strong>: <%= index + 1 %> : <%= investor.first_name %> <%= investor.last_name %> </li>
+           <li><strong>Valorisation cap </strong> : <%=investor.valo_floor%></li>
+        <li><strong>Valorisation floor </strong> : <%=investor.valo_cap%></li>
+        <li><strong>Décote </strong> :<%=investor.rate_drop%></li>
+        <li><strong>Email</strong> :<%=investor.email%></li>
+        <% end %>
+      </ul>
       </div>
-    </div>
     <% end %>
   </div>
   <%= link_to "Générer pdf", generate_contract_signature_contract_path(contract), method: :post, class: "btn btn-success" %>

@@ -18,7 +18,7 @@ class StepsController < ApplicationController
 
   def update
     @contract.user       = current_user unless @contract.user
-    @contract.attributes = contract_params
+    @contract.update(contract_params)
     @contract.price = 60
     @contract.state = 'pending'
     render_wizard @contract
@@ -37,6 +37,7 @@ class StepsController < ApplicationController
   end
 
   def contract_params
+
     params.require(:contract).permit( :company_status, :headquarters_address,
                                       :company_name, :share_capital, :rcs_number,
                                       :rcs_city, :company_object, :company_created_on,
@@ -44,7 +45,7 @@ class StepsController < ApplicationController
                                       :specific_engagment, :investisors_right,
                                       :juridiction_law, :signed_on, :signature_localization,
                                       partners_attributes: [:first_name, :last_name, :email, :phone, :address, :birth_date, :birth_location, :nationality, :id, :_destroy],
-                                      investors_attributes: [:first_name, :last_name, :nationality, :address, :amount_raised, :email, :id, :_destroy])
+                                      investors_attributes: [:first_name, :last_name, :nationality, :address, :amount_raised, :email, :valo_cap, :valo_floor, :rate_drop, :birthdate, :birthplace])
   end
 
   def set_contract

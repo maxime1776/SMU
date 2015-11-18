@@ -47,13 +47,20 @@ def generate_contract_signature
         {
             :email_address => 'maxime1776@gmail.com',
             :name => 'Maxime  Santilli',
-            :role => 'partner'
+            :role => 'partner',
 
+        },
+        {
+          :email_address => 'arthurfulco@hotmail.com',
+            :name => 'Maxime  Santilli',
+            :role => 'investor',
         }
     ],
     :custom_fields => {
       # :partner =>'@partner.first_name + " " + @contract.@partner.last_name + ", né(e) à" + @contract.@partner.birth_location + ", le" + @contract.birth_date.to_s + ", demeurant" + @contract.address + ", de nationalité " + @contract.nationality + ".",'
-      :partner => @contract.partners.map { |partner| partner.info_to_display_in_contract }.join("\n")
+      :partner => @contract.partners.map { |partner| partner.info_to_display_in_contract }.join("\n"),
+      :investor => @contract.investors.map { |investor| investor.info_to_display_in_contract_about_investor }.join("\n"),
+      :company => @contract.info_to_display_in_contract_about_company
     }
 
 
@@ -144,7 +151,7 @@ def contract_params
   params.require(:contract).permit( :company_name, :company_status, :headquarters_address,
                                     :company_name, :share_capital, :rcs_number,
                                     :rcs_city, :company_object, :company_created_on,
-                                    :amount_to_be_raised, :founders_receivables,
+                                    :amount_to_be_raised,
                                     :specific_engagment, :investisors_right,
                                     :juridiction_law, :signed_on, :signature_localization,
                                     partners_attributes: [:first_name, :last_name, :email, :phone, :address, :birth_date, :birth_location, :nationality, :id, :_destroy],
