@@ -44,7 +44,7 @@ class StepsController < ApplicationController
                                       :amount_to_be_raised, :founders_receivables,
                                       :specific_engagment, :investisors_right,
                                       :juridiction_law, :signed_on, :signature_localization,
-                                      partners_attributes: [:first_name, :last_name, :email, :phone, :address, :birth_date, :birth_location, :nationality, :id, :_destroy],
+                                      partners_attributes: [:first_name, :last_name, :email, :phone, :address, :birth_date, :birth_location, :nationality, :founders_receivables, :id, :_destroy],
                                       investors_attributes: [:first_name, :last_name, :nationality, :address, :amount_raised, :email, :valo_cap, :valo_floor, :rate_drop, :birthdate, :birthplace])
   end
 

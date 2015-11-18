@@ -11,9 +11,7 @@ class Contract < ActiveRecord::Base
   monetize :price_cents
 
     def info_to_display_in_contract_about_company
-    "La société #{company_name} #{company_status}, au capital de #{share_capital}
-    immatriculée au Registre du Commerce et Sociétés de #{rcs_city}, sous le numéro #{rcs_number},
-    dont le siège social est situé #{headquarters_address}, représentée par #{contract.partner.first}, agissant en qualité de Président."
+    "La société #{company_name} #{company_status}, au capital de #{share_capital} euros, immatriculée au Registre du Commerce et Sociétés de #{rcs_city}, sous le numéro #{rcs_number}, dont le siège social est situé #{headquarters_address}, représentée par le Président(A REGLER), agissant en qualité de Président."
   end
 end
 

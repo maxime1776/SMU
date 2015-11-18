@@ -1,6 +1,6 @@
 class ContractsController < ApplicationController
 
-before_action :set_contract, except: [:index, :new ]
+before_action :set_contract, except: [:index, :new]
 
 def index
   @contracts = Contract.all
@@ -60,7 +60,15 @@ def generate_contract_signature
       # :partner =>'@partner.first_name + " " + @contract.@partner.last_name + ", né(e) à" + @contract.@partner.birth_location + ", le" + @contract.birth_date.to_s + ", demeurant" + @contract.address + ", de nationalité " + @contract.nationality + ".",'
       :partner => @contract.partners.map { |partner| partner.info_to_display_in_contract }.join("\n"),
       :investor => @contract.investors.map { |investor| investor.info_to_display_in_contract_about_investor }.join("\n"),
-      :company => @contract.info_to_display_in_contract_about_company
+      :company => @contract.info_to_display_in_contract_about_company,
+      :company_object => @contract.company_object,
+      :company_created_on => @contract.company_created_on,
+      :amount_to_be_raised => @contract.amount_to_be_raised,
+      # :founders_receivables => @contract.founders_receivables,
+      :specific_engagment => @contract.specific_engagment,
+      :investissors_right => @contract.investisors_right,
+      :juridiction_law => @contract.juridiction_law,
+      :signature_localization => @contract.signature_localization
     }
 
 
