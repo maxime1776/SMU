@@ -3,10 +3,14 @@ ruby '2.2.3'
 gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
 
+gem 'bootstrap-datepicker-rails'
 gem 'rails', '4.2.4'
 gem 'pg'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
+gem 'coffee-script'
+gem 'money-rails'
+gem 'stripe'
 gem 'devise'
 
 gem 'sass-rails', '~> 5.0'

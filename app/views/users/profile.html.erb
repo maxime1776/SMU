@@ -1,6 +1,11 @@
 <% @user.contracts.each do |contract| %>
   <div class="text-center">
-    <h1><%= contract.company_name%></h1>
+    <h1><%= contract.company_name %></h1>
+    <% if contract.state == 'pending' %>
+      <%= link_to 'Payer le contrat', new_contract_payment_path(contract), class: 'btn btn-success' %>
+    <% else %>
+      <%= link_to 'Télécharger le contrat', contract_path(contract), class: 'btn btn-success' %>
+    <% end %>
   </div>
   <!-- MAIN MENU -->
   <div class="all-cards padded">
@@ -15,7 +20,6 @@
         <li><strong>Ville RCS : <%=contract.rcs_city%></strong></li>
         <li><strong>Date de création : <%=contract.company_created_on%></strong></li>
         <li><strong>Objet social : <%=contract.company_object%></strong></li>
-        <li><strong>Créance des fondateurs : <%=contract.founders_receivables%></strong></li>
         <li><strong>Montant de la levée : <%=contract.amount_to_be_raised%></strong></li>
         <li><strong>Engagement(s) particulier(s) : <%=contract.specific_engagment%></strong></li>
         <li><strong>Droits des investisseurs : <%=contract.investisors_right%></strong></li>
@@ -30,7 +34,7 @@
       <h2><strong>Récapitulatif des informations sur les associés :</strong></h2>
       <ul>
         <% contract.partners.each_with_index do |partner, index| %>
-          <li><strong>Associé(e) <%= index + 1 %> : <%= partner.first_name %> <%= partner.last_name %>  </strong></li>
+          <li><strong>Associé(e) <%= index + 1 %> : <%= partner.first_name %> <%= partner.last_name %> <%=partner.founders_receivables%> </strong></li>
         <% end %>
       </ul>
     </div>

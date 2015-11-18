@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117152955) do
+
+ActiveRecord::Schema.define(version: 20151117155012) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,16 +28,18 @@ ActiveRecord::Schema.define(version: 20151117152955) do
     t.text     "company_object"
     t.date     "company_created_on"
     t.integer  "amount_to_be_raised"
-    t.integer  "founders_receivables"
     t.text     "specific_engagment"
     t.text     "investisors_right"
     t.text     "juridiction_law"
     t.date     "signed_on"
     t.string   "signature_localization"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "user_id"
     t.string   "signature_request_id"
+    t.integer  "price_cents",            default: 0, null: false
+    t.json     "payment"
+    t.string   "state"
   end
 
   add_index "contracts", ["user_id"], name: "index_contracts_on_user_id", using: :btree
@@ -50,6 +54,11 @@ ActiveRecord::Schema.define(version: 20151117152955) do
     t.datetime "updated_at",    null: false
     t.integer  "contract_id"
     t.text     "email"
+    t.text     "birthdate"
+    t.text     "birthplace"
+    t.text     "rate_drop"
+    t.text     "valo_cap"
+    t.text     "valo_floor"
   end
 
   add_index "investors", ["contract_id"], name: "index_investors_on_contract_id", using: :btree
@@ -58,15 +67,16 @@ ActiveRecord::Schema.define(version: 20151117152955) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "address"
     t.datetime "birth_date"
     t.string   "birth_location"
     t.string   "nationality"
     t.boolean  "admin"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "contract_id"
+    t.text     "founders_receivables"
   end
 
   add_index "partners", ["contract_id"], name: "index_partners_on_contract_id", using: :btree

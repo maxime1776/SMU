@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'payments/new'
+
   devise_for :users
   get 'users/profile' => 'users#profile'
 
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
       get :pdf
     end
     resources :steps, only: [:new, :show, :update]
+    resources :payments, only: [:new, :create]
   end
 
 

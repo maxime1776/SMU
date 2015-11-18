@@ -4,6 +4,13 @@ class Investor < ActiveRecord::Base
   # validates :contract_id, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  # validates_format_of :amount_raised, with: /^\d+$/
+  # validates_format_of :rate_drop, with: /^\d+$/
+  # validates_format_of :valo_cap, with: /^\d+$/
+  # validates_format_of :valo_floor, with: /^\d+$/
+
+
   # validates :nationality, presence: true
   # validates :address, presence: true
   # validates :amount_raised, presence: true
