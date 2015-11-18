@@ -26,15 +26,13 @@
       </ul>
 
     </div>
-    <% contract.partners.each do |partner| %>
     <div class="card-profil">
       <h2><strong>Récapitulatif des informations sur les associés :</strong></h2>
       <ul>
-        <li><strong>Associé(e) 1 : <%= partner.first_name%> <%= partner.last_name%>  </strong></li>
-        <li><strong>Associé(e) 2 : </strong></li>
-        <li><strong>Associé(e) 3 : </strong></li>
+        <% contract.partners.each_with_index do |partner, index| %>
+          <li><strong>Associé(e) <%= index + 1 %> : <%= partner.first_name %> <%= partner.last_name %>  </strong></li>
+        <% end %>
       </ul>
-    <% end %>
     </div>
      <% contract.investors.each do |investor| %>
     <div class="card-profil">

@@ -13,6 +13,8 @@ class Partner < ActiveRecord::Base
 
 
   # validates :admin, presence: true, uniqueness: true
-
+  def info_to_display_in_contract
+    "#{first_name} #{last_name}, né(e) à #{birth_location}, le #{birth_date.to_s}, demeurant #{address}, de nationalité #{nationality}."
+  end
 
 end

@@ -11,6 +11,7 @@ end
 
 def new
   @contract = Contract.create!
+  # @contract.partner = @partner
   redirect_to new_contract_step_path(@contract)
 end
 
@@ -36,20 +37,38 @@ end
 
 def generate_contract_signature
   client = HelloSign::Client.new :api_key => ENV['HELLOSIGN_API_KEY']
-  request = client.create_embedded_signature_request(
+  request = client.send_signature_request_with_template(
     :test_mode => 1,
-    :client_id => ENV['HELLOSIGN_CLIENT_ID'],
-    #:template_id => '8263291edf80fd3ad6c2fa91d645251d49b543a7',
+    #:client_id => ENV['HELLOSIGN_CLIENT_ID'],
+    :template_id => '8263291edf80fd3ad6c2fa91d645251d49b543a7',
     :subject => 'My First embedded signature request',
     :message => 'Awesome, right?',
     :signers => [
         {
             :email_address => 'maxime1776@gmail.com',
-            :name => 'Maxime  Santilli'
+            :name => 'Maxime  Santilli',
+            :role => 'partner'
+
         }
     ],
-    :files => ['NDA.pdf']
+    :custom_fields => {
+      # :partner =>'@partner.first_name + " " + @contract.@partner.last_name + ", né(e) à" + @contract.@partner.birth_location + ", le" + @contract.birth_date.to_s + ", demeurant" + @contract.address + ", de nationalité " + @contract.nationality + ".",'
+      :partner => @contract.partners.map { |partner| partner.info_to_display_in_contract }.join("\n")
+    }
+
+
+
+    #custom_fields: {
+      # run `rake hello_sign:list_templates` to get those
+     # partner_1: {
+       # email_address: 'maxime1776@gmail.com',
+       # name: @contract.partners.first.first_name
+     # }
+
+    #},
+    #:files => ['NDA.pdf']
   )
+
 
   # ATTENTION(ssaunier): On fait un .first mais il faut stocker
   #                      TOUTES les signature_id de `request.signatures` en base.
@@ -96,6 +115,18 @@ def generate_contract_signature
   #   }
   # )
   #redirect_to users_profile_path(current_user)
+
+
+
+
+
+
+
+
+
+
+
+
 end
 
 def pdf
