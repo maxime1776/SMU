@@ -57,7 +57,7 @@
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
 .banner p {
-  font-size: 25px;
+  font-size: 30px;
   color: white;
   line-height: 1;
   margin-bottom: 5px;
@@ -82,9 +82,20 @@
 .title-slice-container {
   max-width: 600px;
   margin: auto;
+  padding: 20px 0;
   text-align: center;
 
-  .sub-title { opacity: .7; }
+  .title {
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    font-weight: bold;
+  }
+
+  .sub-title {
+    opacity: .7;
+    font-weight: 100;
+    font-size: 22px;
+  }
 }
 
 .about-slice {
@@ -94,7 +105,7 @@
 
 .about-card-container {
   padding: 30px;
-
+  display: flex;
   flex: 0 0 50%;
 
   @media (max-width: $screen-sm) {
@@ -121,6 +132,17 @@
   margin-right: 20px;
 }
 
+.line {
+  min-height: 200px;
+  background: #F9C11C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  width: 300px;
+  margin-right: 20px;
+  width: 10px;
+}
 // ---APROPOS---
 
 #description{
@@ -137,4 +159,26 @@
 }
 
 
+.about-card-content-title{
+    font-size: 26px;
+    letter-spacing: -2px;
+    color: black;
+    padding-bottom: 10px;
+    flex: 1;
+}
+.about-card-content{
+    font-size: 16px;
+    line-height: 1.4;
+    opacity: .7;
+}
+
+.about-card-content-container {
+  display: flex;
+
+  flex-flow: column;
+}
+
+.center-vid{
+  margin: auto;
+}
 
