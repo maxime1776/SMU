@@ -14,6 +14,10 @@ class Investor < ActiveRecord::Base
   # validates :nationality, presence: true
   # validates :address, presence: true
   # validates :amount_raised, presence: true
+
+   def info_to_display_in_contract_about_investor
+    "#{first_name} #{last_name}, né(e) à #{birthplace}, le #{birthdate}, demeurant #{address}, de nationalité #{nationality}."
+  end
 end
 
 

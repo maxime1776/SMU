@@ -24,39 +24,46 @@
         <li><strong>Engagement(s) particulier(s) : <%=contract.specific_engagment%></strong></li>
         <li><strong>Droits des investisseurs : <%=contract.investisors_right%></strong></li>
         <li><strong>Juridiction en charge : <%=contract.juridiction_law%></strong></li>
-        <li><strong>Valorisation floor : </strong></li>
-        <li><strong>Valorisation cap : </strong></li>
-        <li><strong>Décote : </strong></li>
       </ul>
 
     </div>
-    <% contract.partners.each do |partner| %>
     <div class="card-profil">
       <h2><strong>Récapitulatif des informations sur les associés :</strong></h2>
       <ul>
-        <li><strong>Associé(e) 1 : <%= partner.first_name%> <%= partner.last_name%>  </strong></li>
-        <li><strong>Créance de l'associé 1 : <%=partner.founders_receivables%></strong></li>
-        <li><strong>Associé(e) 2 : </strong></li>
-        <li><strong>Associé(e) 3 : </strong></li>
+        <% contract.partners.each_with_index do |partner, index| %>
+          <li><strong>Associé(e) <%= index + 1 %> : <%= partner.first_name %> <%= partner.last_name %></strong></li>
+           <li><strong>Email </strong> : <%=partner.email%></li>
+        <li><strong>Téléphone </strong> : <%=partner.phone%></li>
+        <li><strong>Addresse : </strong> :<%=partner.address%></li>
+        <li><strong>Né(e) le </strong> :<%=partner.birth_date%> à <%=partner.birth_location%></li>
+        <li><strong>Nationalité</strong> :<%=partner.nationality%></li>
+        <li><strong>Participation au CCA </strong> : <%=partner.founders_receivables%></li>
+        <% end %>
       </ul>
-    <% end %>
     </div>
-     <% contract.investors.each do |investor| %>
-    <div class="card-profil">
-      <h2><strong>Récapitulatif des informations sur les investisseur :</strong></h2>
-      <div>
-        <ul>
-          <li><strong>Investisseur 1 : <%= investor.first_name%> <%= investor.last_name%></strong></li>
-          <li><strong>Investisseur 2 : </strong></li>
-          <li><strong>Investisseur 3 : </strong></li>
-          <li><strong>Investisseur 4 : </strong></li>
-        </ul>
-      </div>
-    </div>
-    <% end %>
-  </div>
 
-<% end %>
+    <div class="card-profil">
+      <h2><strong>Récapitulatif des informations sur les investisseurs :</strong></h2>
+      <ul>
+        <% contract.investors.each_with_index do |investor, index| %>
+          <li><strong>Investisseur</strong>: <%= index + 1 %> : <%= investor.first_name %> <%= investor.last_name %> </li>
+          <li><strong>Nationalité</strong> : <%=investor.nationality%></li>
+          <li><strong>Adresse</strong> : <%=investor.address%></li>
+          <li><strong>Montant investi</strong> : <%=investor.amount_raised%></li>
+          <li><strong>Adresse Mail</strong> : <%=investor.email%></li>
+          <li><strong>Né(e) le</strong> : <%=investor.birthdate%> à <%=investor.birthplace%> </li>
+          <li><strong>Valorisation cap </strong> : <%=investor.valo_floor%></li>
+          <li><strong>Valorisation floor </strong> : <%=investor.valo_cap%></li>
+          <li><strong>Décote </strong> :<%=investor.rate_drop%></li>
+        <% end %>
+      </ul>
+      </div>
+
+  </div>
+  <%= link_to "Générer pdf", generate_contract_signature_contract_path(contract), method: :post, class: "btn btn-success" %>
+
+ <% end %>
+
 
 <div class="header_menu">
   <ul class="header_menu horizontal_list">
@@ -66,3 +73,5 @@
     <li><a href="#">Générer un nouveau contrat</a></li>
   </ul>
 </div>
+
+
