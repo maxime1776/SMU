@@ -1,0 +1,27 @@
+<div class="blight padding">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Achetez votre contrat à un <strong>prix unique</strong></h1>
+        <h2>Le Tippie ne facture que la <strong>création du contrat</strong></h2>
+        <h2>Ensuite, générez <strong>autant d'exemplaires</strong> que vous le souhaitez!</h2>
+        <%= form_tag contract_payments_path(@contract) do %>
+        <article>
+          <label class="price">
+            <span>Price: <%= humanized_money_with_symbol(@contract.price) %></span>
+          </label>
+        </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="my-contract"
+          data-description="Contract <%= @contract.id %>"
+          data-amount="<%= @contract.price_cents %>"
+          data-currency="EUR"></script>
+      <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
