@@ -1,12 +1,19 @@
 <div class="background padded-btn">
-  <div class="bg-gradient flex">
-    <div class="form-group">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-4 col-sm-offset-4">
-            <div class="background-white">
-              <h2>Créer un compte</h2>
-
+  <div id="faq">
+    <div class="title-slice">
+      <div class="title-slice-container">
+        <div class="title">
+          <h2>Créer un compte</h2>
+        </div>
+        <div class="sub-title">
+          Votre profil Boomerang
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="about-slice padlog">
+          <div class="about-card center-vid">
+            <div class="about-card-content-container larg">
               <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                 <%= f.error_notification %>
 
@@ -23,12 +30,15 @@
                 </div>
               <% end %>
 
-              <p>Vous avez un compte, connectez vous : <%= render "devise/shared/links" %></p>
+              <p>Vous avez un compte? connectez vous : <%= render "devise/shared/links" %></p>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
 
