@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Contrat #<%= @contract.id %></h1>
+
+      <script type="text/javascript" src="//s3.amazonaws.com/cdn.hellofax.com/js/embedded.js"></script>
+      <script>
+        HelloSign.init("<%= ENV['HELLOSIGN_CLIENT_ID'] %>");
+        HelloSign.open({
+          url: "<%= @hello_sign_url %>",
+          allowCancel: true,
+          messageListener: function(eventData) {
+            //  do something
+          }
+        });
+      </script>
+    </div>
+  </div>
+</div>

@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20151117155012) do
     t.integer  "price_cents",            default: 0, null: false
     t.json     "payment"
     t.string   "state"
+    t.string   "signature_request_id"
   end
 
   add_index "contracts", ["user_id"], name: "index_contracts_on_user_id", using: :btree

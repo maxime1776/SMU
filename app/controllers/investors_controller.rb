@@ -28,7 +28,7 @@ class InvestorsController < ApplicationController
   end
 
   def investor_params
-    params.require(:investor).permit(:first_name, :last_name, :nationality, :address, :amount_raised, :email)
+    params.require(:investor).permit(:first_name, :last_name, :nationality, :address, :amount_raised, :email, :valo_cap, :valo_floor, :rate_drop, :birthdate, :birthplace)
   end
 
    def contract_params
