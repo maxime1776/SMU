@@ -8,6 +8,7 @@
         HelloSign.init("<%= ENV['HELLOSIGN_CLIENT_ID'] %>");
         HelloSign.open({
           url: "<%= @hello_sign_url %>",
+          skipDomainVerification: true,
           allowCancel: true,
           messageListener: function(eventData) {
             //  do something
