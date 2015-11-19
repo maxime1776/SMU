@@ -21,6 +21,8 @@ class Partner < ActiveRecord::Base
     "#{first_name} #{last_name}, né(e) à #{birth_location}, le #{birth_date}, demeurant #{address}, de nationalité #{nationality}."
   end
 
-
+  def full_name
+    "#{first_name.capitalize} #{last_name.capitalize}"
+  end
 
 end
