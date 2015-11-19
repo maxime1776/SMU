@@ -24,7 +24,9 @@
                 <%= partner_form.link_to_remove "Supprimez cet associé" %>
               <% end %>
               <p><%= contract.link_to_add "Ajoutez un(e) associé(e)", :partners %></p>
-              <%= contract.submit "Passez à la dernière étape", class: "btn btn-primary" %>
+              <div class="btnpad">
+                <%= contract.submit "Passez à la dernière étape", class: "btn btn-primary" %>
+              </div>
             <% end %>
          </div>
        </div>

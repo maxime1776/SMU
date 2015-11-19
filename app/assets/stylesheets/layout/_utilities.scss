@@ -4,6 +4,16 @@
  * Feel free to change them and create your own
  * ------------------------------------- */
 
+
+ .Site {
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
+ }
+
+ .Site-content { flex: 1 }
+
+
 // Paddings
 .padded {
   padding: 30px;
@@ -69,6 +79,8 @@ h1 {
   padding-top:20px;
 
 }
-
+.btnpad{
+  padding: 15px;
+}
 
 

@@ -8,10 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Varela|Varela+Round&subset=latin,greek' rel='stylesheet' type='text/css'>
   </head>
-  <body>
+  <body class='Site'>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class='Site-content'>
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
   </body>

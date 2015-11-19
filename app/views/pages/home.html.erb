@@ -1,18 +1,25 @@
 <div class="banner text-center " style="background-image: url('<%= image_path "startup.png" %>')">
   <div class="banner-gradient"></div>
   <div class="banner-content marged-header filtrer">
-      <div class="content-text">
-        <p><strong>Réalisez votre première levée de fonds.</strong></p>
-        <p><strong>Créez un contrat qui protège vos investisseurs & votre startup.</strong></p>
+    <div class="banner-name">
+      <div class="banner-name-company">
+        boomerang
       </div>
-       <%= link_to t("btn btn-primary btn-lg", default: "COMMENCEZ GRATUITEMENT"), new_contract_path(), class: "navbar-wagon-item navbar-wagon-button btn btn-primary" %>
+      <div class="banner-name-logo"><%= image_tag "logow.png" %></div>
+    </div>
 
+
+    <div class="content-text">
+      <p><strong>Réalisez votre première levée de fonds.</strong></p>
+      <p><strong>Créez un contrat qui protège vos investisseurs & votre startup.</strong></p>
+    </div>
+     <%= link_to t("btn btn-primary btn-lg", default: "COMMENCEZ GRATUITEMENT"), new_contract_path(), class: "navbar-wagon-item navbar-wagon-button btn btn-primary" %>
   </div>
 </div>
 
 
 <div id="offres">
-  <div class="padded" id="description">
+  <div class="padded">
     <div class="container text-center" id="features">
       <div class="cards">
 
