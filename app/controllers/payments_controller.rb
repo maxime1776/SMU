@@ -30,6 +30,8 @@ class PaymentsController < ApplicationController
   end
 
 
+
+
 private
 
   def set_contract

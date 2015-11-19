@@ -48,12 +48,12 @@ class ContractsController < ApplicationController
           {
             :email_address => 'maxime1776@gmail.com',
             :name => 'Maxime  Santilli',
-            :role => 'investor'
+            :role => 'partner'
           },
           {
-            :email_address => 'maxime17762@gmail.com',
-            :name => 'Maxime  Santilli',
-            :role => 'partner'
+            :email_address => 'arthurfulco@hotmail.com',
+            :name => 'Arthur',
+            :role => 'investor'
           }
         ],
       :custom_fields => {
@@ -77,6 +77,46 @@ class ContractsController < ApplicationController
     redirect_to pdf_contract_path(@contract)
   end
 
+
+  def generate_send_signature
+    client = HelloSign::Client.new :api_key => ENV['HELLOSIGN_API_KEY']
+    request = client.send_signature_request_with_template(
+      :test_mode => 1,
+      :template_id => '8263291edf80fd3ad6c2fa91d645251d49b543a7',
+      :subject => 'My First embedded signature request',
+      :message => 'Awesome, right?',
+      :signers => [
+          {
+            :email_address => 'maxime1776@gmail.com',
+            :name => 'Maxime  Santilli',
+            :role => 'partner'
+          },
+          {
+            :email_address => 'arthurfulco@hotmail.com',
+            :name => 'Arthur',
+            :role => 'investor'
+          }
+      ],
+      :custom_fields => {
+        :partner => @contract.partners.map { |partner| partner.info_to_display_in_contract }.join("\n"),
+        :investor => @contract.investors.map { |investor| investor.info_to_display_in_contract_about_investor }.join("\n"),
+        :company => @contract.info_to_display_in_contract_about_company,
+        :company_object => @contract.company_object,
+        :company_created_on => @contract.company_created_on,
+        :amount_to_be_raised => @contract.amount_to_be_raised,
+        :founders_receivables => @contract.partners.map{|partner| "#{partner.full_name} (#{partner.founders_receivables}€)" }.join(", "),
+        :specific_engagment => @contract.specific_engagment,
+        :investissors_right => @contract.investisors_right,
+        :juridiction_law => @contract.juridiction_law,
+        :signature_localization => @contract.signature_localization
+      }
+    )
+
+    @contract.signature_request_id = request.signatures.first.signature_id
+    @contract.save
+
+    #redirect_to pdf_contract_path(@contract)
+  end
   #     :custom_fields => {
   #       :partner => @contract.partners.map { |partner| partner.info_to_display_in_contract }.join("\n"),
   #       :investor => @contract.investors.map { |investor| investor.info_to_display_in_contract_about_investor }.join("\n"),

@@ -105,6 +105,7 @@
 
     <div class="text-center padded upcase">
       <%= link_to "Contrat", generate_contract_signature_contract_path(contract), method: :post, class: "btn btn-primary" %>
+      <%= link_to "Send", generate_send_signature_contract_path(contract), method: :post, class: "btn btn-primary" %>
 
       <% if contract.state == 'pending' %>
           <%= link_to 'Acheter', new_contract_payment_path(contract), class: 'btn btn-primary' %>
@@ -113,7 +114,6 @@
         <% end %>
     </div>
      <% end %>
-
 
   <div class="header_menu">
     <ul class="header_menu horizontal_list">
