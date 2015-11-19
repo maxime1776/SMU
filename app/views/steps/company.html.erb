@@ -25,7 +25,10 @@
             <%= contract.input :juridiction_law, label: 'Juridiction en charge', placeholder: "Paris", class: "form-control"%>
             <%= contract.input :signed_on, as: :string, input_html: {class: "datepicker"}, label: 'Date de la signature', placeholder: "11/11/2015", class: "form-control"%>
             <%= contract.input :signature_localization, label: 'Fait à', placeholder: "Paris", class: "form-control"%>
-            <%= contract.submit "Passez à l'étape suivante", class: "btn btn-primary" %>
+            <div class="btnpad">
+              <%= contract.submit "Passez à l'étape suivante", class: "btn btn-primary" %>
+            </div>
+
          <% end %>
          </div>
        </div>

@@ -26,7 +26,9 @@
               <%= investor_form.link_to_remove "Supprimez cet investisseur" %>
             <% end %>
             <p><%= contract.link_to_add "Ajoutez un investisseur", :investors %></p>
-            <%= contract.submit "Récapitulatif", class: "btn btn-primary" %>
+            <div class="btnpad">
+              <%= contract.submit "Récapitulatif", class: "btn btn-primary" %>
+            </div>
           <% end %>
 
          </div>
