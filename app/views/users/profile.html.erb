@@ -1,68 +1,99 @@
 <% @user.contracts.each do |contract| %>
-  <div class="text-center">
-    <h1><%= contract.company_name %></h1>
-    <% if contract.state == 'pending' %>
-      <%= link_to 'Payer le contrat', new_contract_payment_path(contract), class: 'btn btn-success' %>
-    <% else %>
-      <%= link_to 'Télécharger le contrat', contract_path(contract), class: 'btn btn-success' %>
-    <% end %>
+ <div class="padded">
+   <div class="about-card-content-title upcase">
+    <div class="text-center">
+      <h1><%= contract.company_name %></h1>
+    </div>
   </div>
-  <!-- MAIN MENU -->
-  <div class="all-cards padded">
-    <div class="card-profil">
-      <h2><strong>Récapitulatif des informations sur la société et la levée : </strong></h2>
-      <ul>
-        <li><strong>Nom de la société : <%= contract.company_name%></strong></li>
-        <li><strong>Statut de la société : <%=contract.company_status%></strong></li>
-        <li><strong>Adresse du siège : <%=contract.headquarters_address%></strong></li>
-        <li><strong>Capital social : <%=contract.share_capital%></strong></li>
-        <li><strong>Numéro RCS : <%=contract.rcs_number%></strong></li>
-        <li><strong>Ville RCS : <%=contract.rcs_city%></strong></li>
-        <li><strong>Date de création : <%=contract.company_created_on%></strong></li>
-        <li><strong>Objet social : <%=contract.company_object%></strong></li>
-        <li><strong>Montant de la levée : <%=contract.amount_to_be_raised%></strong></li>
-        <li><strong>Engagement(s) particulier(s) : <%=contract.specific_engagment%></strong></li>
-        <li><strong>Droits des investisseurs : <%=contract.investisors_right%></strong></li>
-        <li><strong>Juridiction en charge : <%=contract.juridiction_law%></strong></li>
-      </ul>
-
-    </div>
-    <div class="card-profil">
-      <h2><strong>Récapitulatif des informations sur les associés :</strong></h2>
-      <ul>
-        <% contract.partners.each_with_index do |partner, index| %>
-          <li><strong>Associé(e) <%= index + 1 %> : <%= partner.first_name %> <%= partner.last_name %></strong></li>
-           <li><strong>Email </strong> : <%=partner.email%></li>
-        <li><strong>Téléphone </strong> : <%=partner.phone%></li>
-        <li><strong>Addresse : </strong> :<%=partner.address%></li>
-        <li><strong>Né(e) le </strong> :<%=partner.birth_date%> à <%=partner.birth_location%></li>
-        <li><strong>Nationalité</strong> :<%=partner.nationality%></li>
-        <li><strong>Participation au CCA </strong> : <%=partner.founders_receivables%></li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="card-profil">
-      <h2><strong>Récapitulatif des informations sur les investisseurs :</strong></h2>
-      <ul>
-        <% contract.investors.each_with_index do |investor, index| %>
-          <li><strong>Investisseur</strong>: <%= index + 1 %> : <%= investor.first_name %> <%= investor.last_name %> </li>
-          <li><strong>Nationalité</strong> : <%=investor.nationality%></li>
-          <li><strong>Adresse</strong> : <%=investor.address%></li>
-          <li><strong>Montant investi</strong> : <%=investor.amount_raised%></li>
-          <li><strong>Adresse Mail</strong> : <%=investor.email%></li>
-          <li><strong>Né(e) le</strong> : <%=investor.birthdate%> à <%=investor.birthplace%> </li>
-          <li><strong>Valorisation cap </strong> : <%=investor.valo_floor%></li>
-          <li><strong>Valorisation floor </strong> : <%=investor.valo_cap%></li>
-          <li><strong>Décote </strong> :<%=investor.rate_drop%></li>
-        <% end %>
-      </ul>
+</div>
+<div class="prof-about-card-content">
+  <div class="container">
+    <div class="about-card">
+      <div class="about-slice">
+          <div class="prof-line"></div>
+            <div class="about-card-content-container">
+              <div class="about-card-content-title upcase">
+                <h2><strong>Récapitulatif des informations sur la société et la levée </strong></h2>
+              </div>
+                <ul>
+                  <li><strong>Nom de la société : </strong> <%= contract.company_name%></li>
+                  <li><strong>Statut de la société :</strong> <%=contract.company_status%></li>
+                  <li><strong>Adresse du siège : </strong><%=contract.headquarters_address%></li>
+                  <li><strong>Capital social : </strong><%=contract.share_capital%></li>
+                  <li><strong>Numéro RCS :</strong> <%=contract.rcs_number%></li>
+                  <li><strong>Ville RCS : </strong><%=contract.rcs_city%></li>
+                  <li><strong>Date de création :</strong> <%=contract.company_created_on%></li>
+                  <li><strong>Objet social :</strong> <%=contract.company_object%></li>
+                  <li><strong>Montant de la levée : </strong><%=contract.amount_to_be_raised%></li>
+                  <li><strong>Engagement(s) particulier(s) :</strong> <%=contract.specific_engagment%></li>
+                  <li><strong>Droits des investisseurs : </strong><%=contract.investisors_right%></li>
+                  <li><strong>Juridiction en charge :</strong> <%=contract.juridiction_law%></li>
+                </ul>
+            </div>
+          </div>
+        </div>
       </div>
-
+  <div class="container">
+    <div class="about-card">
+      <div class="about-slice">
+        <div class="prof-line"></div>
+          <div class="about-card-content-container">
+            <div class="about-card-content-title upcase">
+              <h2><strong>Récapitulatif des informations sur les investisseurs</strong></h2>
+            </div>
+                <ul>
+                  <% contract.partners.each_with_index do |partner, index| %>
+                    <li><strong>Associé(e) <%= index + 1 %> : <%= partner.first_name %> <%= partner.last_name %></strong></li>
+                     <li><strong>Email </strong> : <%=partner.email%></li>
+                  <li><strong>Téléphone </strong> : <%=partner.phone%></li>
+                  <li><strong>Addresse : </strong> :<%=partner.address%></li>
+                  <li><strong>Né(e) le </strong> :<%=partner.birth_date%> à <%=partner.birth_location%></li>
+                  <li><strong>Nationalité</strong> :<%=partner.nationality%></li>
+                  <li><strong>Participation au CCA </strong> : <%=partner.founders_receivables%></li>
+                  <% end %>
+                </ul>
+          </div>
+      </div>
+    </div>
   </div>
-  <%= link_to "Générer pdf", generate_contract_signature_contract_path(contract), method: :post, class: "btn btn-success" %>
+  <div class="container">
+    <div class="about-slice">
+      <div class="about-card">
+        <div class="prof-line"></div>
+          <div class="about-card-content-container">
+            <div class="about-card-content-title upcase">
+              <h2><strong>Récapitulatif des informations sur les investisseurs</strong></h2>
+            </div>
+                <ul>
+                  <% contract.investors.each_with_index do |investor, index| %>
+                    <li><strong>Investisseur: <%= index + 1 %> : <%= investor.first_name %> <%= investor.last_name %> </li></strong>
+                    <li><strong>Nationalité</strong> : <%=investor.nationality%></li>
+                    <li><strong>Adresse</strong> : <%=investor.address%></li>
+                    <li><strong>Montant investi</strong> : <%=investor.amount_raised%></li>
+                    <li><strong>Adresse Mail</strong> : <%=investor.email%></li>
+                    <li><strong>Né(e) le</strong> : <%=investor.birthdate%> à <%=investor.birthplace%> </li>
+                    <li><strong>Valorisation cap </strong> : <%=investor.valo_floor%></li>
+                    <li><strong>Valorisation floor </strong> : <%=investor.valo_cap%></li>
+                    <li><strong>Décote </strong> :<%=investor.rate_drop%></li>
+                  <% end %>
+                </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
 
- <% end %>
+
+  <div class="text-center padded upcase">
+    <%= link_to "Générer le contrat", generate_contract_signature_contract_path(contract), method: :post, class: "btn btn-primary" %>
+
+    <% if contract.state == 'pending' %>
+        <%= link_to 'Payer le contrat', new_contract_payment_path(contract), class: 'btn btn-primary' %>
+      <% else %>
+        <%= link_to 'Télécharger le contrat', contract_path(contract), class: 'btn btn-primary' %>
+      <% end %>
+  </div>
+   <% end %>
 
 
 <div class="header_menu">
