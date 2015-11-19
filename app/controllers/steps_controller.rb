@@ -4,7 +4,7 @@ class StepsController < ApplicationController
   include Wicked::Wizard
   steps :company, :partners, :investors
 
-  before_action :set_contract, only: [ :show, :update, :generate_contract_signature ]
+  before_action :set_contract, only: [ :show, :update ]
 
   def new
     redirect_to wizard_path(Wicked::FIRST_STEP)
