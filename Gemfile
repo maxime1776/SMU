@@ -26,7 +26,7 @@ gem "nested_form"
 gem 'hellosign-ruby-sdk'
 
 gem 'wicked'
-
+gem 'omniauth-linkedin'
 
 group :development, :test do
   gem 'binding_of_caller'
