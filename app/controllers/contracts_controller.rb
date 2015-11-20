@@ -42,8 +42,8 @@ class ContractsController < ApplicationController
       :test_mode => 1,
       :client_id => '86a76dab6835e7eb19af42cb98b03e04',
       :template_id => '8263291edf80fd3ad6c2fa91d645251d49b543a7',
-      :subject => 'My First embedded signature request',
-      :message => 'Awesome, right?',
+      :subject => 'BSA Air - Contrat / Généré sur Boomerang',
+      :message => 'Bonjour, veuillez trouver en pièce jointe de cet email le contrat de BSA AIR',
       :signers => [
           {
             :email_address => 'maxime1776@gmail.com',
@@ -80,23 +80,30 @@ class ContractsController < ApplicationController
 
   def generate_send_signature
     client = HelloSign::Client.new :api_key => ENV['HELLOSIGN_API_KEY']
+
+    signers_partners = @contract.partners.map do |partner|
+      {
+        :email_address => partner.email,
+        :name => partner.first_name + " " + partner.last_name,
+        :role => 'partner'
+      }
+    end
+
+    signers_investors = @contract.investors.map do |investor|
+      {
+        :email_address => investor.email,
+        :name => investor.first_name + " " + investor.last_name,
+        :role => 'investor'
+      }
+    end
+    signers = (signers_investors + signers_partners).uniq
+
     request = client.send_signature_request_with_template(
       :test_mode => 1,
       :template_id => '8263291edf80fd3ad6c2fa91d645251d49b543a7',
-      :subject => 'My First embedded signature request',
-      :message => 'Awesome, right?',
-      :signers => [
-          {
-            :email_address => 'maxime1776@gmail.com',
-            :name => 'Maxime  Santilli',
-            :role => 'partner'
-          },
-          {
-            :email_address => 'arthurfulco@hotmail.com',
-            :name => 'Arthur',
-            :role => 'investor'
-          }
-      ],
+      :subject => 'BSA Air - Contrat / Généré sur Boomerang',
+      :message => 'Bonjour, veuillez trouver en pièce jointe de cet email le contrat de BSA AIR',
+      :signers => signers,
       :custom_fields => {
         :partner => @contract.partners.map { |partner| partner.info_to_display_in_contract }.join("\n"),
         :investor => @contract.investors.map { |investor| investor.info_to_display_in_contract_about_investor }.join("\n"),
