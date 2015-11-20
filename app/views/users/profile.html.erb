@@ -52,6 +52,7 @@
                   </div>
                 </h2>
               </div>
+               <div class="content-info">
                   <ul>
                     <% contract.partners.each_with_index do |partner, index| %>
                       <li><strong>Associé(e) <%= index + 1 %> : <%= partner.first_name %> <%= partner.last_name %></strong></li>
@@ -63,6 +64,7 @@
                     <li><strong>Participation au CCA </strong> : <%=partner.founders_receivables%></li>
                     <% end %>
                   </ul>
+                </div>
             </div>
         </div>
       </div>
