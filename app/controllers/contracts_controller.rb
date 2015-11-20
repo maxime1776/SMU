@@ -10,7 +10,7 @@ class ContractsController < ApplicationController
   end
 
   def new
-    @contract = Contract.create!
+    @contract = Contract.create
     # @contract.partner = @partner
     redirect_to new_contract_step_path(@contract)
   end
