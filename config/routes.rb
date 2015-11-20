@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   end
 
   get 'pages/about' => 'pages/about'
+  get 'pages/logo' => 'pages/logo'
+  get 'pages/cgu' => 'pages/cgu'
   post 'test', to: "steps#test"
   post 'callbacks', to: "steps#callbacks"
 
