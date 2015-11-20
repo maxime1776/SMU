@@ -52,6 +52,7 @@
                   </div>
                 </h2>
               </div>
+               <div class="content-info">
                   <ul>
                     <% contract.partners.each_with_index do |partner, index| %>
                       <li><strong>Associé(e) <%= index + 1 %> : <%= partner.first_name %> <%= partner.last_name %></strong></li>
@@ -63,6 +64,7 @@
                     <li><strong>Participation au CCA </strong> : <%=partner.founders_receivables%></li>
                     <% end %>
                   </ul>
+                </div>
             </div>
         </div>
       </div>
@@ -105,6 +107,7 @@
 
     <div class="text-center padded upcase">
       <%= link_to "Contrat", generate_contract_signature_contract_path(contract), method: :post, class: "btn btn-primary" %>
+      <%= link_to "Send", generate_send_signature_contract_path(contract), method: :post, class: "btn btn-primary" %>
 
       <% if contract.state == 'pending' %>
           <%= link_to 'Acheter', new_contract_payment_path(contract), class: 'btn btn-primary' %>
@@ -113,7 +116,6 @@
         <% end %>
     </div>
      <% end %>
-
 
   <div class="header_menu">
     <ul class="header_menu horizontal_list">
