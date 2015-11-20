@@ -122,7 +122,7 @@ class ContractsController < ApplicationController
     @contract.signature_request_id = request.signatures.first.signature_id
     @contract.save
 
-    #redirect_to pdf_contract_path(@contract)
+    redirect_to users_profile_path(@contract)
   end
 
   def pdf
