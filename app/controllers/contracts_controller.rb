@@ -122,75 +122,8 @@ class ContractsController < ApplicationController
     @contract.signature_request_id = request.signatures.first.signature_id
     @contract.save
 
-    #redirect_to pdf_contract_path(@contract)
+    redirect_to users_profile_path(@contract)
   end
-  #     :custom_fields => {
-  #       :partner => @contract.partners.map { |partner| partner.info_to_display_in_contract }.join("\n"),
-  #       :investor => @contract.investors.map { |investor| investor.info_to_display_in_contract_about_investor }.join("\n"),
-  #       :company => @contract.info_to_display_in_contract_about_company,
-  #       :company_object => @contract.company_object,
-  #       :company_created_on => @contract.company_created_on,
-  #       :amount_to_be_raised => @contract.amount_to_be_raised,
-  #       :founders_receivables => @contract.partners.map{|partner| "#{partner.full_name} (#{partner.founders_receivables}€)" }.join(", "),
-  #       :specific_engagment => @contract.specific_engagment,
-  #       :investissors_right => @contract.investisors_right,
-  #       :juridiction_law => @contract.juridiction_law,
-  #       :signature_localization => @contract.signature_localization
-  #     }
-  #   )
-  #   # ATTENTION(ssaunier): On fait un .first mais il faut stocker
-  #   #                      TOUTES les signature_id de `request.signatures` en base.
-
-
-  #   @contract.signature_request_id = request.signatures.first.signature_id
-  #   @contract.save
-
-  #   redirect_to pdf_contract_path(@contract)
-
-
-  # end
-
-  # def generate_contract_signature
-  # client = HelloSign::Client.new :api_key => ENV['HELLOSIGN_API_KEY']
-  #  request = client.create_embedded_signature_request(
-  #   :test_mode => 1,
-  #     :client_id => ENV['HELLOSIGN_CLIENT_ID'],
-  #     #:template_id => '8263291edf80fd3ad6c2fa91d645251d49b543a7',
-  #     :subject => 'My First embedded signature request',
-  #     :message => 'Awesome, right?',
-  #     :signers => [
-  #         {
-  #             :email_address => 'maxime1776@gmail.com',
-  #             :name => 'Maxime  Santilli'
-  #         }
-  #     ],
-  #     :files => ['NDA.pdf'],
-
-  #     # :custom_fields => {
-  #     #   :partner => @contract.partners.map { |partner| partner.info_to_display_in_contract }.join("\n"),
-  #     #   :investor => @contract.investors.map { |investor| investor.info_to_display_in_contract_about_investor }.join("\n"),
-  #     #   :company => @contract.info_to_display_in_contract_about_company,
-  #     #   :company_object => @contract.company_object,
-  #     #   :company_created_on => @contract.company_created_on,
-  #     #   :amount_to_be_raised => @contract.amount_to_be_raised,
-  #     #   :founders_receivables => @contract.partners.map{|partner| "#{partner.full_name} (#{partner.founders_receivables}€)" }.join(", "),
-  #     #   :specific_engagment => @contract.specific_engagment,
-  #     #   :investissors_right => @contract.investisors_right,
-  #     #   :juridiction_law => @contract.juridiction_law,
-  #     #   :signature_localization => @contract.signature_localization
-  #     # }
-  #   )
-
-  #   @contract.signature_request_id = request.signatures.first.signature_id
-  #   @contract.save
-
-  #   redirect_to pdf_contract_path(@contract)
-
-
-  # end
-
-
-
 
   def pdf
     client = HelloSign::Client.new :api_key => ENV['HELLOSIGN_API_KEY']
