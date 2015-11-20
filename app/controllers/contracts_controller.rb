@@ -44,18 +44,18 @@ class ContractsController < ApplicationController
       :template_id => '8263291edf80fd3ad6c2fa91d645251d49b543a7',
       :subject => 'BSA Air - Contrat / Généré sur Boomerang',
       :message => 'Bonjour, veuillez trouver en pièce jointe de cet email le contrat de BSA AIR',
-      :signers => [
-          {
-            :email_address => 'maxime1776@gmail.com',
-            :name => 'Maxime  Santilli',
-            :role => 'partner'
-          },
-          {
-            :email_address => 'arthurfulco@hotmail.com',
-            :name => 'Arthur',
-            :role => 'investor'
-          }
-        ],
+      # :signers => [
+      #     {
+      #       :email_address => 'maxime1776@gmail.com',
+      #       :name => 'Maxime  Santilli',
+      #       :role => 'partner'
+      #     },
+      #     {
+      #       :email_address => 'arthurfulco@hotmail.com',
+      #       :name => 'Arthur',
+      #       :role => 'investor'
+      #     }
+      #   ],
       :custom_fields => {
         :partner => @contract.partners.map { |partner| partner.info_to_display_in_contract }.join("\n"),
         :investor => @contract.investors.map { |investor| investor.info_to_display_in_contract_about_investor }.join("\n"),
