@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :contracts do
     member do
       post :generate_contract_signature
+      post :generate_send_signature
       get :pdf
     end
     resources :steps, only: [:new, :show, :update]
