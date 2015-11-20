@@ -15,10 +15,13 @@
             <div class="prof-line"></div>
               <div class="about-card-content-container">
                 <div class="about-card-content-title upcase">
-                  <div class="img-profil">
+                  <h2>Récapitulatif des informations de la société et la levée de fonds
+                     <%= link_to  generate_contract_signature_contract_path(contract), method: :post do %>
+                    <div class="img-profil-edit">
                     <%= image_tag "edit.png" %>
-                  </div>
-                  <h2>Récapitulatif des informations de la société et la levée de fonds</h2>
+                    </div>
+                    <%end%>
+                  </h2>
                 </div>
                 <div class="content-info">
                   <ul>
@@ -47,21 +50,18 @@
             <div class="about-card-content-container">
               <div class="about-card-content-title upcase">
                 <h2>Récapitulatif des informations des associés
-                    <div class="img-profil">
-                    <%= image_tag "edit.png" %>
-                  </div>
                 </h2>
               </div>
                <div class="content-info">
                   <ul>
                     <% contract.partners.each_with_index do |partner, index| %>
                       <li><strong>Associé(e) <%= index + 1 %> : <%= partner.first_name %> <%= partner.last_name %></strong></li>
-                       <li><strong>Email </strong> : <%=partner.email%></li>
-                    <li><strong>Téléphone </strong> : <%=partner.phone%></li>
-                    <li><strong>Addresse : </strong> :<%=partner.address%></li>
-                    <li><strong>Né(e) le </strong> :<%=partner.birth_date%> à <%=partner.birth_location%></li>
-                    <li><strong>Nationalité</strong> :<%=partner.nationality%></li>
-                    <li><strong>Participation au CCA </strong> : <%=partner.founders_receivables%></li>
+                        <li><strong>Email </strong> : <%=partner.email%></li>
+                        <li><strong>Téléphone </strong> : <%=partner.phone%></li>
+                        <li><strong>Addresse : </strong> :<%=partner.address%></li>
+                        <li><strong>Né(e) le </strong> :<%=partner.birth_date%> à <%=partner.birth_location%></li>
+                        <li><strong>Nationalité</strong> :<%=partner.nationality%></li>
+                        <li><strong>Participation au CCA </strong> : <%=partner.founders_receivables%></li>
                     <% end %>
                   </ul>
                 </div>
@@ -75,19 +75,24 @@
           <div class="prof-line"></div>
             <div class="about-card-content-container">
               <div class="about-card-content-title upcase">
-                <h2>Récapitulatif des informations des investisseurs</h2>
-                <div class="img-profil">
-                    <%= image_tag "edit.png" %>
-                  </div>
-              </div>
+                <h2>Récapitulatif des informations des investisseurs
+                <%= link_to  generate_contract_signature_contract_path(contract), method: :post do %>
+                    <div class="img-profil-view">
+                    <%= image_tag "see.png" %>
+                    </div>
+                <% end %>
+                 <%= link_to  generate_send_signature_contract_path(contract), method: :post do %>
+                    <div class="img-profil-send">
+                    <%= image_tag "send.png" %>
+                    </div>
+                <% end %>
+                </h2>
+                </div>
                   <div class="content-info">
                     <ul>
                       <% contract.investors.each_with_index do |investor, index| %>
                         <li><strong>Investisseur: <%= index + 1 %> : <%= investor.first_name %> <%= investor.last_name %> </li></strong>
                         <li><strong>Adresse Mail</strong> : <%=investor.email%></li>
-                         <div class="img-profil-send">
-                          <%= image_tag "send.png" %>
-                        </div>
                         <li><strong>Nationalité</strong> : <%=investor.nationality%></li>
                         <li><strong>Adresse</strong> : <%=investor.address%></li>
                         <li><strong>Montant investi</strong> : <%=investor.amount_raised%></li>
@@ -106,8 +111,6 @@
 
 
     <div class="text-center padded upcase">
-      <%= link_to "Contrat", generate_contract_signature_contract_path(contract), method: :post, class: "btn btn-primary" %>
-      <%= link_to "Send", generate_send_signature_contract_path(contract), method: :post, class: "btn btn-primary" %>
 
       <% if contract.state == 'pending' %>
           <%= link_to 'Acheter', new_contract_payment_path(contract), class: 'btn btn-primary' %>
@@ -117,14 +120,14 @@
     </div>
      <% end %>
 
-  <div class="header_menu">
+ <!--  <div class="header_menu">
     <ul class="header_menu horizontal_list">
       <li><a class="no_border purple" href="#">Profile</a></li>
       <li><a href="#">Contrats</a></li>
       <li><a href="#">Modifier</a></li>
       <li><a href="#">Générer un nouveau contrat</a></li>
     </ul>
-  </div>
+  </div> -->
 
 
 </div>

@@ -321,16 +321,33 @@ ul {
   width: 4px;
 }
 
-.img-profil{
+.img-profil-edit{
+   position: absolute;
+  right: 12px;
+  top: 46px;
+  padding-left: 17px;
+  padding-left: 10px;
+
+}
+
+.img-profil-view{
   position: absolute;
-  top: 45px;
-  right: 10px;
+  top: 43px;
+  right: 159px;
+  padding-left: 10px;
+  size: 2em;
 }
 
 .img-profil-send{
   position: absolute;
-  top: 9px;
-  left: 1027px;
+  top: 42px;
+  left: 1058px;
+}
+
+.img-profil-buy{
+  position: absolute;
+  top: 36px;
+  left: 1000px;
 }
 
 .content-info{
