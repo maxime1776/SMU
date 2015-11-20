@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end
 
-
+  get 'pages/about' => 'pages/about'
   post 'test', to: "steps#test"
   post 'callbacks', to: "steps#callbacks"
 

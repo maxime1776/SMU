@@ -40,8 +40,10 @@
       </div>
     <% else %>
       <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <hr>
+      <%= link_to "INSCRIPTION", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
-    <hr>
-     <a href="users/sign_up", class="navbar-wagon-item navbar-wagon-link">INSCRIPTION</a>
+
+
   </div>
 </nav>

@@ -4,7 +4,17 @@ class Partner < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  # validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  validates :email, presence: true
+  validates :phone, presence: true
+  validates :address, presence: true
+  validates :birth_date, presence: true
+  validates :birth_location, presence: true
+  validates :nationality, presence: true
+  validates :founders_receivables, presence: true
+
+
+
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
   validates_format_of :phone, :with => /\A0\d{9}\z/
   # validates_format_of :phone, with: /^0\d{9}$/ :multiline => true option?
 

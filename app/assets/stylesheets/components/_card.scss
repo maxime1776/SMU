@@ -1,6 +1,5 @@
 .cards {
   display: flex;
-
   flex: 1;
 }
 
@@ -24,3 +23,9 @@
   }
 }
 
+.about-card-container {
+  display: flex;
+  margin: 0;
+  padding: 10px;
+  flex: 0 0 25%;
+}
