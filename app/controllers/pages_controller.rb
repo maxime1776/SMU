@@ -7,7 +7,9 @@ class PagesController < ApplicationController
   end
 
   def cgu
+  end
 
+  def logo
   end
 
   def pdf
