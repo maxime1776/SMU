@@ -6,6 +6,12 @@ class PagesController < ApplicationController
   def about
   end
 
+  def cgu
+  end
+
+  def logo
+  end
+
   def pdf
     client = HelloSign::Client.new :api_key => ENV['HELLOSIGN_API_KEY']
     raise

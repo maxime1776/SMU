@@ -20,7 +20,7 @@
               <%= investor_form.input :address, label: 'Adresse', as: :string, placeholder: "20 rue de l'est 92100 Boulogne-Billancourt"%>
               <%= investor_form.input :email, label: 'Email', as: :string, placeholder: "Maxime@free.com"%>
               <%= investor_form.input :amount_raised, label: 'Montant investi', as: :string, placeholder: "100"%>
-              <%= investor_form.input :rate_drop, label: 'Taux de décôte', as: :string, placeholder: "25%"%>
+              <%= investor_form.input :rate_drop, collection: 10..100, label: 'Taux de décôte', as: :string, placeholder: "25%"%>
               <%= investor_form.input :valo_cap, label: 'Valorisation Cap', as: :string, placeholder: "100"%>
               <%= investor_form.input :valo_floor, label: 'Valorisation Floor', as: :string, placeholder: "50"%>
               <%= investor_form.link_to_remove "Supprimez cet investisseur" %>
